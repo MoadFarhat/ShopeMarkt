@@ -29,7 +29,8 @@ close
 <div class="sidebar">
 <a href="#"><span class="material-symbols-sharp">
 grid_view
-</span><h3> الفحة الرئيسية</h3></a>
+</span><h3>الصفحة الرئيسية
+</h3></a>
 <a href="#" class="active"><span class="material-symbols-sharp">
 person
 </span><h3>  المنتجات</h3></a>
