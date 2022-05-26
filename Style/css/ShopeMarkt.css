@@ -89,9 +89,57 @@ header .container .logo i{
     color: white;
     margin-left: 40px;
 }
+.search{
+    position: relative;
+    left: 20px;
+    
+  }
+  .searchbox:focus{
+    border-color: #66afe9;
+    outline: 0;
+    width: 200px;
+    -webkit-transition: width 0.2s ease-in 0.2s;
+            transition: width 0.2s ease-in 0.2s;
+  }
+  .searchbox{
+    -webkit-transition: width 0.2s ease-in 0.2s;
+            transition: width 0.2s ease-in 0.2s;
+    position: relative;
+    width: 85px;
+    height: 30px;
+    float: left;
+    margin:0;
+    padding: 0 35px 0 20px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    background-image: none;
+    color: #555;
+  }
+  .search-btn-wrap{
+  
+    position: absolute;
+    right: 0;
+  }
+  
+  .search-btn{
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 2px;
+    margin-right: 2px;
+    z-index: 3;
+    height: 26px;
+    width: 30px;
+    border: 0;
+    margin-bottom: 0;
+    color: #CCC;
+    background: transparent;
+  }
 header h1{
     color: white;
-    margin-left: 300px;
+    position: absolute;
+    left: 500px;
+    /* margin-left: 300px; */
     letter-spacing: 2px;
     /* font-size: 20px; */
     font-family: 'Playball', cursive;
@@ -182,6 +230,9 @@ header nav .from i {
     background-color: rgb( 0 0 0 / 65%);
 }
 /*End Landing */
+.free{
+    height: 100px;
+}
 /* Start footer */
 .footer{
     background-image: url(/image/footer.jpg);
