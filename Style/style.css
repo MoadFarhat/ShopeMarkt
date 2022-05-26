@@ -132,9 +132,10 @@ aside .sidebar{
     background: white;
     display: flex;
     flex-direction: column;
-    height: 86vh;
+    height:90%;
     position: relative;
     top:2rem;
+    border-radius: 2rem;
 }
 aside h3{
     font-weight:800;
@@ -251,21 +252,30 @@ main .insights svg circle{
     stroke: var(--color-primary);
     stroke-width: 14;
     stroke-linecap: round;
+    stroke-dasharray: 472;
     transform: translate(5px,5px);
-    stroke-dasharray: 110;
-    stroke-dashoffset: 92;
+    animation: anim 2s linear forwards;
 }
+
 main .insights .sales svg circle{
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
+    stroke-dashoffset: 472;
+    stroke-dasharray: 472;
+    animation: anim 2s linear forwards;
 }
 main .insights .expenses svg circle{
-    stroke-dashoffset: 20;
-    stroke-dasharray: 80;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 200;
+ animation: anim 2s linear forwards;
 }
 main .insights .income svg circle{
-    stroke-dashoffset: 35;
-    stroke-dasharray: 110;
+    stroke-dashoffset: 472;
+    stroke-dasharray: 472;
+    animation: anim 2s linear forwards;
+}
+@keyframes anim{
+    100%{
+        stroke-dashoffset:165;
+    }
 }
 main .insights .progress .number{
     position: absolute;
@@ -372,4 +382,52 @@ main a.all{
 .right .top .profile .info{
     font-size: 1rem;
     font-weight: bold;
+}
+.right .rightdown{
+    width: 100%;
+    height:90%;
+    background: var(--color-white);
+    border:var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    margin-top: 2rem;
+    border-radius: 2rem;
+}
+.right .rightdown h1{
+justify-content: center;
+text-align: center;
+margin-top: 1rem;
+}
+.right .rightdown:hover{
+    box-shadow: none;
+}
+.right .rightdown:hover .imagprofile{
+    width: 100%;
+    height: 10rem;
+    margin-top: 3rem;
+}
+
+/*     (شاشة تابلت)الشاشات  */
+@media screen and (max-width:1200px) {
+    .container{
+       
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+    aside .logo h2{
+        display: none;
+    }
+    aside .sidebar h3{
+        display: none;
+    }
+    aside .sidebar a{
+        width: 5.6rem;
+    }
+    aside .sidebar a:last-child{
+        position: relative;
+        margin: 1.8rem;
+    }
+    main .insights{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
 }
