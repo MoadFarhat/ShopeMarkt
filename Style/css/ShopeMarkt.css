@@ -276,6 +276,10 @@ font-size: 40px;
     color: white;
     margin-bottom: 40px;
 }
+.footer .icon i:hover{
+    color: var(--main-coler);
+    
+}
 .footer p{
     color: white;
 }
