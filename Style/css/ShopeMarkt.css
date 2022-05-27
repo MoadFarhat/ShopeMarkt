@@ -235,7 +235,7 @@ header nav .from i {
 }
 /* Start footer */
 .footer{
-    background-image: url(/image/footer.jpg);
+    background-image: url(../../image/footer.jpg);
     background-size: cover;
     padding-top: 40px;
     padding-bottom: 40px;

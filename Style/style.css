@@ -19,8 +19,17 @@
     --card-padding:1.8rem;
     --padding-1:1.2rem;
     --box-shadow:0 2rem 3rem var(--color-light);
-
 }
+    .dark-theme-variables{
+        --color-background:#181a1e;
+        --color-white:#202528;
+        --color-dark:#edeffd;
+        --color-dark-variant:#a3bbcc;
+        --color-light:rgba(0, 0, 0,0.4);
+        --box-shadow:0 2rem 3rem var(--color-light);
+    }
+
+
 *{
     margin: 0;
     padding: 0;
@@ -109,7 +118,7 @@ b{
     grid-template-columns: 14rem auto 23rem;
 }
 aside{
-height: 100vh;
+height: 90%;
 }
 aside .top{
     display: flex;
@@ -120,10 +129,10 @@ aside .top{
 aside .logo{
     display: flex;
     gap: 0.8rem;
+    
 }
-aside .logo img{
-    width: 2rem;
-    height: 2rem;
+aside .logo i{
+    font-size: 4rem;
 }
 aside .close{
     display: none;
@@ -132,7 +141,7 @@ aside .sidebar{
     background: white;
     display: flex;
     flex-direction: column;
-    height:90%;
+    height:95%;
     position: relative;
     top:2rem;
     border-radius: 2rem;
@@ -184,6 +193,9 @@ aside .sidebar a:hover span{
 /* المنتصف main الإحصائيات */
 main{
     margin-top:1.4rem;
+}
+main h1{
+    text-align: center;
 }
 main .date{
 display: inline-block;
@@ -391,7 +403,9 @@ main a.all{
     box-shadow: var(--box-shadow);
     margin-top: 2rem;
     border-radius: 2rem;
-}
+    display: flex;
+    flex-direction: column;
+align-items: center;}
 .right .rightdown h1{
 justify-content: center;
 text-align: center;
@@ -400,12 +414,41 @@ margin-top: 1rem;
 .right .rightdown:hover{
     box-shadow: none;
 }
-.right .rightdown:hover .imagprofile{
-    width: 100%;
-    height: 10rem;
+.right .rightdown .imagprofile{
+    width: 90%;
+    height:12rem;
     margin-top: 3rem;
+    
 }
+.right .rightdown .imagprofile img{
+border-radius: 2rem;
+height:100%;
+}
+.right .rightdown  .information{
+    margin-top: 2rem;
+   
+}
+.right .rightdown  .information h2{
+    color: var(--color-info-dark);   
+    margin-bottom: 1.5rem; 
+    }
+    .right .rightdown  .information .info{
+        margin-bottom: 1rem;
+        border-bottom:1px solid lightgrey; 
+        }
+    .right .rightdown  .information  .info .infofelx{
+display: flex;
+align-items: center;
+margin-bottom: 1rem;
+    }
+    .right .rightdown  .information  .info .infofelx i{
+        flex:0.5;
+        font-size: 2rem;
 
+    }
+    .right .rightdown  .information  .info .infofelx h1{
+        flex:6;
+    }
 /*     (شاشة تابلت)الشاشات  */
 @media screen and (max-width:1200px) {
     .container{
@@ -430,4 +473,94 @@ margin-top: 1rem;
         grid-template-columns: 1fr;
         gap: 0;
     }
-}
+    main .recentOrder{
+        width: 94%;
+        margin: 2rem 0 0 8.8rem;
+    }
+    main .recentOrder table{
+        width: 90vw;
+    }
+    /*       شاشة أصغر*/
+
+    @media screen  and (max-width:786px) {
+       .container{
+           width: 90%;
+           grid-template-columns: 1fr;
+       }
+       aside{
+           position: fixed;
+           right: -100%;
+           background: var(--color-white);
+           width: 18rem;
+           z-index: 3;
+           box-shadow: 1rem 3rem 4rem var(--color-light);
+           height: 100vh;
+           padding-left: (--card-padding);
+           display: none;
+           animation: showMenu 400ms ease forwards;
+       }
+       @keyframes showMenu {
+           to{
+               right: 0;
+           }
+       }
+       aside .logo{
+           margin-right: 1rem;
+       }
+       aside .logo h2{
+        display: inline;
+    }
+    aside .sidebar h3{
+        display: inline;
+    }
+    aside .sidebar a{
+        width: 100%;
+        height: 3.4rem;
+    }
+    aside .sidebar a:last-child{
+        position: absolute;
+        bottom: 5rem;
+    }
+    aside .close{
+        display:inline-block;
+        cursor: pointer;
+    }
+    main{
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+    main .recentOrder{
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+    main .recentOrder table{
+        margin: 0;
+    }
+    .right{
+        width: 94%;
+        margin: 0 auto 6rem;
+        height: 96%;
+    }
+    .right .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+    .right .top button{
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        right:1rem;}
+     
+    }      
+    }
