@@ -160,7 +160,7 @@ aside .sidebar a{
     height: 3.7rem;
     transition: all 300ms ease;
 }
-aside .sidebar a span{
+aside .sidebar a i{
     font-size: 1.6rem;
     transition: all 300ms ease;
 }
@@ -180,14 +180,14 @@ aside .sidebar a:active::before{
     height: 100%;
     background: var(--color-primary);
 }
-aside .sidebar a.active span{
+aside .sidebar a.active i{
     color: var(--color-primary);
     margin-right: calc(1rem-3px);
 }
 aside .sidebar a:hover{
     color: var(--color-primary);
 }
-aside .sidebar a:hover span{
+aside .sidebar a:hover i{
     margin-right:1rem ;
 }
 /* المنتصف main الإحصائيات */
@@ -418,7 +418,7 @@ main a.all{
 .right .rightdown .imagprofile{
     width: 90%;
     height:12rem;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     
 }
 .right .rightdown .imagprofile img{
@@ -426,15 +426,15 @@ main a.all{
     height:100%;
 }
 .right .rightdown  .information{
-    margin-top: 2rem;
+    margin-top: 1rem;
    
 }
 .right .rightdown  .information h2{
     color: var(--color-info-dark);   
-    margin-bottom: 1.5rem; 
+    margin-bottom: 1rem; 
     }
 .right .rightdown  .information .info{
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     border-bottom:1px solid lightgrey; 
 }
 .right .rightdown  .information  .info .infofelx{
@@ -443,13 +443,15 @@ main a.all{
     margin-bottom: 1rem;
     }
 .right .rightdown  .information  .info .infofelx i{
-    flex:0.5;
-    font-size: 2rem;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: #c87d0e;
 
 }
 .right .rightdown  .information  .info .infofelx h1{
-    flex:6;
+    flex:1;
 }
+
 /*     (شاشة تابلت)الشاشات  */
 @media screen and (max-width:1200px) {
 .container{
@@ -561,7 +563,13 @@ main .recentOrder table{
     cursor: pointer;
     color: var(--color-dark);
     position: absolute;
-    right:1rem;}
+    right:1rem;
+font-size: large;
+}
+.right .rightdown .imagprofile{
+    top:1rem;
+    height:18rem;
+}
     
 }      
 }
