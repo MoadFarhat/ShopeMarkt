@@ -1,0 +1,41 @@
+.container
+{
+    margin-top: 100px;
+}
+.newarrival 
+{
+    background: GREEN;
+    width: 50PX;
+    font-size: 20PX;
+    font-weight: bold;
+}
+.neww h2
+{
+    color: #555;
+}
+.strat
+{
+    height: 15px;
+}
+.price
+{
+    color: #FE980F;
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+input
+{
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 33px;
+    text-align: center;
+    width: 30px;
+}
+.cart
+{
+    background: #FE980F;
+    color: #ffffffff;
+    font-size: 15px;
+    margin-right: 20px;
+}
