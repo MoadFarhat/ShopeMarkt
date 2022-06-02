@@ -275,18 +275,28 @@ main .insights .sales svg circle{
     animation: anim 2s linear forwards;
 }
 main .insights .expenses svg circle{
-    stroke-dashoffset: 0;
-    stroke-dasharray: 200;
- animation: anim 2s linear forwards;
+    stroke-dashoffset: 472;
+    stroke-dasharray: 472;
+ animation: animex 2s linear forwards;
 }
 main .insights .income svg circle{
     stroke-dashoffset: 472;
     stroke-dasharray: 472;
-    animation: anim 2s linear forwards;
+    animation: animincom 2s linear forwards;
 }
 @keyframes anim{
     100%{
-        stroke-dashoffset:165;
+        stroke-dashoffset:440;
+    }
+}
+@keyframes animex{
+    100%{
+        stroke-dashoffset:400;
+    }
+}
+@keyframes animincom{
+    100%{
+        stroke-dashoffset:350;
     }
 }
 main .insights .progress .number{
@@ -483,6 +493,7 @@ main .recentOrder{
 main .recentOrder table{
     width: 90vw;
 }
+}
 /*       شاشة أصغر*/
 
 @media screen  and (max-width:786px) {
@@ -572,4 +583,4 @@ font-size: large;
 }
     
 }      
-}
+
