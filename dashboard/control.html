@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-UA-compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="border.css"/>
+   <title>Flexbox</title>
+   <style type="text/css">
+   	*{ 
+   		margin: 0;
+       padding: 0;
+       font-family: cursive;
+       box-sizing: border-box;
+   	}
+    body {
+        background: white;
+        
+    }
+     table{
+        height: 100px;
+     width: 1000px;
+     box-shadow: 5px 20px 20px -3px rgba(0, 0, 2, 0.5);
+
+     } 
+     table,td,th{
+     padding: 12px;
+     border: 0.5px solid lightgrey;
+     border-collapse: collapse;
+     text-align : center;
+
+     }
+     tr:nth-child(odd):hover{
+      background-color: dodgerblue;
+      color: white;
+      transform: scale(1.2);
+      transition: transform 300ms ease-in;
+
+     }
+     tr:nth-child(even){background-color: #ededed;}   
+     tr:nth-child(even):hover{
+      background-color: lightgrey;
+      color: white;
+      transform: scale(1.2);
+      transition: transform 300ms ease-in;
+
+     }   
+
+   	.cont{
+        width: 100%;
+        height: 100px;
+        top: 20px;
+
+   	}
+   	.flex-container{
+   	    
+   	     display: flex;
+   	     flex-direction: row-reverse;
+
+
+   	 }
+     .flex-box1{
+     	width: 20%;
+        height: 500px;
+        background: linear-gradient(white);
+        color: black;
+        font-size: 25px;
+        text-align:center ;
+        line-height: 200px;
+        border-radius: 20px;
+        margin: 10px;
+         box-shadow: 10px 10px 30px lightgrey ;
+         float: right;
+}
+
+   	 .flex-box{
+        width: 25%;
+        height: 200px;
+        background: linear-gradient(white);
+        color: black;
+        font-size: 25px;
+        text-align:center ;
+        line-height: 80px;
+        border-radius: 20px;
+        margin: 10px;
+        box-shadow: 10px 10px 20px lightgrey ;
+        float: left;
+
+   	  }
+       .flex-box:hover{
+       box-shadow: none;
+       }
+   	  
+   	  .butn {
+        width: 45%;
+       text-align: 0;
+       margin-top: 20px;
+        float: right;
+
+
+      }
+      
+.btn{
+        
+        border: 1px solid #3498db ;
+        background: none;
+        padding: 8px 15px;
+        font-size: 20px;
+        font-family: "montserrat";
+       cursor: pointer;
+       margin: 8px;
+       transition: 0.8s;
+       position: relative;
+       overflow: hidden;    
+
+    }
+    .b1,.b3{
+     color: #3498db ;
+    }
+    .b2 {color: #fff;}
+
+    .b1:hover ,.b3:hover { color: #fff;}
+    .b2:hover { color: #3498db; }
+    .btn::before{
+     content: "";
+     position: absolute;
+     left: 0;
+     width: 100%;
+     height: 0%;
+     background: #3498db;
+     z-index: -1;
+     transition: 0.8s;
+
+    }
+    .b1::before,.b3::before{
+     top: 0;
+     border-radius: 0 0 50% 50%;
+    }
+    .b2::before {
+     bottom: 0;
+     border-radius: 50% 50% 0 0;
+    }
+    .b2::before{
+     height: 180%;
+    }
+    .b1:hover::before,.b3:hover::before{
+     height: 180%;
+    }
+    .b2:hover::before{
+     height: 0%;
+    }
+
+
+   	  .flex{
+       height: 200px;
+        background: linear-gradient(white);
+        color: black;
+        font-size: 25px;
+        text-align:center ;
+        line-height: 10px;
+        border-radius: 20px;
+        margin: 10px;
+         box-shadow: 10px 10px 20px lightgrey ;
+         float: right;
+}
+main{
+    margin-top:1.4rem;
+}
+main h1{
+    text-align: center;
+}
+.flex-box1:hover{color: #3498db;}
+main .date{
+    
+    display: inline-block;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1.5rem;
+    padding: 0.5rem 1.6rem;
+    
+    
+}
+main .date input[type="date"]{
+    background: transparent;
+    color: var(--color-dark);
+}
+
+    </style>
+   </head>
+   <body>
+   	<div class="cont">
+        <main>
+   <h1>التحكم</h1>
+   <div class="date">
+     <input type="date"/>
+   </div>
+   
+  </main>
+      <div class="flex-box1">
+      
+<h3>   الصفحة الرئيسية</h3>
+  </div>
+
+<div class="flex-container" >
+      <div class="flex-box">
+      <h3>عدد المشتركين في المتجر
+</h3>250 
+  </div>
+  <div class="flex-box">
+     <h1> عدد الطلبات</h1>
+20
+  </div>
+  <div class="flex-box">
+    <h3>  عدد طلبات التوصيل</h3>
+5
+  </div>      
+
+  </div>
+  <div class="butn">
+  
+  	<button class="btn b1">إضافة صنف</button> 
+    <button class="btn b2">إضافة مستخدم</button> 
+ <button class="btn b3"> حذف مستخدم</button> 
+  </div>
+  <div class="flex" >
+ 
+<table>
+    <tr>
+        <th>رقم المستخدم</th>
+        <th>اسم المستخدم </th>
+        <th>البريد الالكتروني</th>
+        <th>مكان السكن</th>
+        <th>الرمز السري</th>
+        <th>العملية </th>
+    </tr>
+    <tr>
+    <td>1</td>
+     <td>احمد علي</td>
+      <td>ahmed123@gmail.com</td>
+            <td>طرابلس</td>
+                  <td>2254@#$</td>
+                   <div class="butn">
+  
+    <td><button class="btn1">تعديل</button>
+    <button class="btn2">حذف</button> </td>
+  </div>
+    </tr>
+    
+    <tr>
+    <td>2</td>
+     <td>محمدبن عمران</td>
+      <td>moh553@gmail.com</td>
+            <td>بن وليد</td>
+                  <td>22*5#$</td>
+    <td><button class="btn1">تعديل</button>
+    <button class="btn2">حذف</button> </td>
+    </tr>
+    </tr>
+    <tr>
+    <td>3</td>
+     <td>ناجي حسين</td>
+      <td>naje88@gmail.com</td>
+            <td>زليتن</td>
+                  <td>1179@#$</td>
+    <td><button class="btn1">تعديل</button>
+    <button class="btn2">حذف</button> </td>
+    </tr>
+</table>
+
+  </div>
+</div>
+
+
+  </body>
+  </html>
