@@ -1,31 +1,79 @@
 <html>
     <head>
-        <title>Sign Up</title>
+        <title>التسجيل</title>
         <link rel="stylesheet" href="Style/css/style1.css">
         <link rel="stylesheet" href="Style/css/all.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <!-- Main Shope Markt Css File -->
+         <link rel="stylesheet" href="Style/css/ShopeMarkt.css">
+         
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+         
+         
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="overlay"></div>
+        <header >
+            <div class="container">
+                
+                
+                <div class="wrapper">
+                    <a href="signup.html"><span>تسجيل  </span></a>
+                    </div>
+            <div class="wrapper">
+                    <a href="login.html"><span>تسجيل دخول </span></a>
+                    </div>
+                    
+                    <div class="search"  >
+                    <form id="searchFormTop" action="" method="get" >
+                        <input type="text" class="searchbox" name="q" id="q" placeholder="بحث">
+                        <span class="search-btn-wrap">
+                            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                        </span>
+                    </form>
+                </div>
+                    <h1>Shope Markt</h1>
+                <nav>
+                    <ul>
+                        <li><a  href="#footer">حول</a></li>
+                        <li><a  href="#category" >الاقسام</a></li>
+                        <li><a class="active" href="#heade">الرئيسة</a></li>
+                    </ul>
+                </nav>
+                <a class="logo" href="main.html">
+                    <i class="fa-solid fa-shop"></i>
+                    <!-- <img src="image/logo.png" alt="logo"> -->
+                </a>
+            </div>
+        </header>
+        <div class="box">
+            <div class="container">
         <div class="from-box">
             <h1>التسجيل  </h1>
             <div class="input-box">
-                <input type="text" placeholder="Enter your Name">
+                <input type="text" placeholder="ادخل الاسم">
             </div>
             <div class="input-box">
-                <input type="email" placeholder="Enter your Email">
+                <input type="email" placeholder="ادخل البريد الكتروني">
             </div>
             <div class="input-box">
-                <input type="tel" placeholder="Enter your Number">
+                <input type="tel" placeholder="ادخل رقم الهاتف">
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Enter your password" id="myInput">
+                <input type="password" placeholder="ادخل كلمة السر" id="myInput">
             <span class="eye" onclick="myFunction()">
-                <i id="hide1" class="fa-solid fa-eye"></i>
                 <i id="hide2" class="fa-solid fa-eye-slash"></i>
+                <i id="hide1" class="fa-solid fa-eye"></i>
             </span>
             </div>
             <button type="button" class="login-button">التسجيل</button>
          </div>
+            </div>
+        </div>
          <script>
             function myFunction(){
                 var x = document.getElementById("myInput");

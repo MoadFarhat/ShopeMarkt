@@ -144,18 +144,22 @@ header .wrapper{
   }
   
   header .wrapper a{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 40px;
-    line-height: 35px;
-    font-size: 18px;
+    /* line-height: 35px; */
+    font-size: 15px;
     font-weight: bold;
     /* font-family: sans-serif; */
     text-decoration: none;
     color: #fff;
     border: 2px solid #fff;
     /* letter-spacing: 2px; */
-    text-align: center;
+    /* text-align: center; */
+    font-family: 'Cairo', sans-serif;
+
     position: relative;
     transition: all .35s;
   }
@@ -178,14 +182,15 @@ header .wrapper{
   }
   
   header .wrapper a:hover{
-    color: rgb(27, 27, 27);
+    color: rgb(0, 0, 0);
+    border: transparent;
   }
   
  header .wrapper a:hover:after{
     width: 100%;
   }
 
-header .icons button{
+/* header .icons button{
     display: block;
     padding: 5px 15px;
     font-weight: bold;
@@ -196,7 +201,7 @@ header .icons button{
 header .icons button:hover{
     background-color: var(--main-color);
     color: white;
-} 
+}  */
 header .container .logo img{
     height: 80px;
     margin-left: 40px;
@@ -209,13 +214,16 @@ header .container .logo i{
 .search{
     position: relative;
     left: 20px;
+    
 }
 .searchbox:focus{
-    border-color: #66afe9;
+    border-color: var(--main-color);
     outline: 0;
     width: 200px;
     -webkit-transition: width 0.2s ease-in 0.2s;
     transition: width 0.2s ease-in 0.2s;
+    box-shadow: 0 0 4px .5px var(--main-color);
+
 }
 .searchbox{
     -webkit-transition: width 0.2s ease-in 0.2s;
@@ -259,6 +267,9 @@ header h1{
     letter-spacing: 2px;
     /* font-size: 20px; */
     font-family: 'Playball', cursive;
+}
+header h1:hover{
+    text-shadow:  .5px 0 20px #19c8fa;
 }
 
 header  nav{
