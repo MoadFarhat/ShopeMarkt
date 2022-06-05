@@ -1,3 +1,53 @@
+<?php
+session_start();
+require_once('php/phpConect/mysql_connact.php');
+error_reporting(0);
+if(isset($_POST['login'])){
+$name=mysqli_real_escape_string($conn_link,$_POST['username']);
+$email=mysqli_real_escape_string($conn_link,$_POST['Email']);
+
+$phone="".$_POST['phone'];
+$password=base64_encode(mysqli_real_escape_string($conn_link,$_POST['passs']));
+$address=mysqli_escape_string($conn_link,$_POST['adress']);
+$chiper="AES-128-CTR";//خوارزمية التشفير
+$option=0;
+$encryption_vi='1234567890123456';
+$encryption_key='Moad';
+
+$encryption_password=openssl_encrypt($password,$chiper,$encryption_key,$option,$encryption_vi);
+$regphone='/^09(1|2|4)[\d]{7}$/';
+$mfile=$_FILES['image']['name'];
+if(empty($name)or empty($email)or empty($phone)or empty($password) or empty($address) ){
+    header("location:signup.php?e=الرجاء تعبئة جيع الحقول");
+}
+if(!preg_match($regphone,$phone)){
+echo"<script> alert('الرجاء إدخال رقم الهاتف بشكل صحيح');</script>";
+}
+else{
+    $mfile=$_FILES['image']['name'];
+   
+   if(empty($mfile)){
+        $mfile="image/user.jpg";
+    } 
+    $mfiletemp=$_FILES['image']['tmp_name'];
+    $upload_file='image/usersimage/'.$mfile;
+    move_uploaded_file($mfiletemp,$upload_file);
+   $rank="مستخدم";
+   $sql="INSERT INTO user (Name,Email,Password,Address,phone,Rank,Image) VALUES('$name','$email','$encryption_password','$address','$phone','$rank','$mfile')";
+   $query=mysqli_query($conn_link,$sql)or die("error55");
+  $sql1=mysqli_query($conn_link,"SELECT UserID from user WHERE Password='$password' and Name='$name'")or die("error");
+  $fetch=mysqli_fetch_array($sql1);
+  $_SESSION['id_user']=$fetch[0];
+header("location:user/user_home.html");
+
+
+}
+}
+
+?>
+
+
+
 <html>
     <head>
         <title>التسجيل</title>
@@ -22,10 +72,11 @@
                 
                 
                 <div class="wrapper">
-                    <a href="signup.html"><span>تسجيل  </span></a>
+                    <a href="signup.php"><span>تسجيل  </span></a>
                     </div>
+              
             <div class="wrapper">
-                    <a href="login.html"><span>تسجيل دخول </span></a>
+                    <a href="login.php"><span>تسجيل دخول </span></a>
                     </div>
                     
                     <div class="search"  >
@@ -54,26 +105,37 @@
             <div class="container">
         <div class="from-box">
             <h1>التسجيل  </h1>
+            <form method="post" action="" enctype="multipart/form-data">
             <div class="input-box">
-                <input type="text" placeholder="ادخل الاسم">
+                <input type="text" name="username" placeholder="ادخل الاسم" required>
             </div>
             <div class="input-box">
-                <input type="email" placeholder="ادخل البريد الكتروني">
+                <input type="email" name="Email" placeholder="ادخل البريد الكتروني" required>
             </div>
             <div class="input-box">
-                <input type="tel" placeholder="ادخل رقم الهاتف">
+                <input type="tel" name="phone" placeholder="ادخل رقم الهاتف" required>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="ادخل كلمة السر" id="myInput">
+                <input type="password" name="passs" placeholder="ادخل كلمة السر" id="myInput" required>
             <span class="eye" onclick="myFunction()">
                 <i id="hide2" class="fa-solid fa-eye-slash"></i>
                 <i id="hide1" class="fa-solid fa-eye"></i>
             </span>
             </div>
-            <button type="button" class="login-button">التسجيل</button>
+            <div class="input-box">
+                <input type="text" name="adress" placeholder="ادخل العنوان " required>
+            </div>
+            <div class="input-box">
+                <input type="file" name="image"placeholder="ادخل العنوان " required/>
+            </div>
+            <button type="submit" name="login" class="login-button">التسجيل</button>
+            </form>
          </div>
+        <h1 style="color:red"> <?php echo $_GET['e'];?></h1>
+      
             </div>
         </div>
+
          <script>
             function myFunction(){
                 var x = document.getElementById("myInput");
