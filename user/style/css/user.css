@@ -1034,6 +1034,8 @@ header nav .from i {
     padding-bottom: var(--main-padding-bottom);
     position: relative;
     background-color: var(--section-background);
+    text-decoration: none;
+
 }
 .category .container {
     direction: rtl;
@@ -1091,7 +1093,7 @@ header nav .from i {
     left: 0;
     top: 0;
     height: 100%;
-    width: 80px;
+    width: 100px;
     font-size: 30px;
     font-weight: bold;
     display: flex;
