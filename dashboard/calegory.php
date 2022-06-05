@@ -1,3 +1,19 @@
+<?php
+require_once("../php/phpConect/chickLogin.php");
+require_once('../php/phpConect/mysql_connact.php');
+if(isset($_POST['add'])){
+$name=mysqli_real_escape_string($conn_link,$_POST['catogry']);
+if(empty($name)){
+header("location:calegory.php");}
+
+else{
+$query=$conn_link->query("INSERT INTO category (Category) Values ('$name')")or die("error");
+header("location:calegory.php");
+}
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,17 +40,17 @@
 
 </head>
 <body>
-    <!-- Start Header -->
-    
+<!-- Start Header -->
     <header >
         <div class="container">
             <div class="wrapper">
                 <a href="../index.html"><span>صفحة رئيسية  </span></a>
                 </div>
                 <h1>Shope Markt</h1>
-           
+            
             <a class="logo" href="main.html">
                 <i class="fa-solid fa-shop"></i>
+                <!-- <img src="image/logo.png" alt="logo"> -->
             </a>
         </div>
     </header>
@@ -67,40 +83,57 @@
     </div>
 </div>
 <!-- End control -->
-<!-- Start Stats -->
-<div class="stats">
-    <h2 class="main-title">بيانات المتجر</h2>
+<div class="calegory">
+        <h2 class="main-title">الأقسام</h2>
     <div class="container">
-        <div class="box">
-            <i class="far fa-user fa-2x fa-fw"></i>
-            <span class="number" data-goal="150">121458</span>
-            <span class="text">المستخدمين</span>
+        <div class="data-search">
+            <form method="post" action="">
+                <div class="head">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="catogry" placeholder="اضافة  قسم" required>
+                        <button type="submit"     name="add"       class="btn">اضافة</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="box">
-            <i class="fa-solid fa-cart-shopping fa-2x fa-fw"></i>
-            <span class="number" data-goal="135">6521</span>
-            <span class="text">منتجات</span>
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <thead>
+                <tr>
+                    <th>اسم التصنيف</th>
+                    <th>تاريخ الاضافة</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php $q=$conn_link->query("SELECT * FROM category ")or die("error");
+                    if(mysqli_num_rows($q)>0){
+                  
+                    while($f=mysqli_fetch_array($q)){
+                    ?>
+                <tr>
+                    <td><?php  echo $f[1]; ?></td>
+                    <td><?php  echo date('Y-m-d',strtotime($f[2])); ?></td>
+                    <td class="as12"><div class="multi-button">
+                        <button>تعديل </button>
+                        <button >حدف</button>
+                      </div></td>
+                </tr>
+                <?php }}
+                $conn_link->close();?>
+                
+                <tbody>
+            </table>
         </div>
-        <div class="box">
-            <i class="fa-solid fa-list fa-2x fa-fw"></i>
-            <span class="number" data-goal="50">15</span>
-            <span class="text">الاقسام</span>
-        </div>
-        <div class="box">
-            <i class="fa-solid fa-sack-dollar fa-2x fa-fw"></i>
-            <span class="number" data-goal="500">1,025,478</span>
-            <span class="text">الارباح</span>
-        </div>
+        
     </div>
 </div>
-<!-- End Stats -->
-
-    <!-- Start footer -->
+<!-- Start footer -->
     <div class="footer" id="footer">
         <div class="container">
             <p>&copy; 2022 <span>Shope Markt</span> جميع الحقوق محفوظة</p>
         </div>
     </div>
-    <!-- End footer -->
+<!-- End footer -->
 </body>
 </html>
