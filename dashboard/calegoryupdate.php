@@ -1,19 +1,24 @@
 <?php
 require_once("../php/phpConect/chickLogin.php");
 require_once('../php/phpConect/mysql_connact.php');
-if(isset($_POST['add'])){
+$encryption_id=base64_decode($_GET['d']);
+$chiper="AES-128-CTR";//خوارزمية التشفير
+$option=0;
+$encryption_vi='1234567890123456';
+$encryption_key='Moad';
+
+$id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_vi); 
+if(isset($_POST['update'])){
 $name=mysqli_real_escape_string($conn_link,$_POST['catogry']);
 if(empty($name)){
-header("location:calegory.php?e=الرجاءإدخال إسم");}
+    echo "<script> alert('الرجاء إدخال إسم التصنيف');  </script>";
+}
 
-else{
-$query=$conn_link->query("INSERT INTO category (Category) Values ('$name')")or die("error");
+$command=$conn_link->query("UPDATE category SET Category='$name' WHERE  CategoryID='$id' ")or die ("error");
 header("location:calegory.php");
-}
-}
 
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,11 +71,11 @@ header("location:calegory.php");
 <div class="control">
     <div class="container">
         <div class="wrapper">
-            <a href="index.html"><i class="fas fa-home"></i>
+            <a href="index.php"><i class="fas fa-home"></i>
                 <span>لوحة تحكم </span></a>
         </div>
         <div class="wrapper">
-            <a href="calegory.html"><i class="fas fa-paper-plane"></i>
+            <a href="calegory.php"><i class="fas fa-paper-plane"></i>
                 <span>الاقسام</span></a>
         </div>
         <div class="wrapper">
@@ -84,59 +89,26 @@ header("location:calegory.php");
     </div>
 </div>
 <!-- End control -->
+<?php $q=$conn_link->query("SELECT * FROM category WHERE CategoryID='$id'")or die("eror select");
+$row=mysqli_fetch_array($q);
+
+?>
 <div class="calegory">
-        <h2 class="main-title">الأقسام</h2>
+        <h2 class="main-title">تعديل قسم</h2>
     <div class="container">
         <div class="data-search" id="data-search">
             <form method="post" action="">
                 <div class="head">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="catogry" placeholder="اضافة  قسم" required>
-                        <button type="submit"     name="add"       class="btn">اضافة</button>
+                        <input type="text" class="form-control" name="catogry" placeholder="تعديل  قسم" value="<?php  echo $row[1]; ?>" required>
+                        <button type="submit"     name="update"       class="btn">تعديل</button>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="table-wrapper" id="table-wrapper">
-            <table class="fl-table">
-                <thead>
-                <tr>
-                    <th>اسم التصنيف</th>
-                    <th>تاريخ الاضافة</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php $q=$conn_link->query("SELECT * FROM category ")or die("error");
-                    if(mysqli_num_rows($q)>0){
-                  
-                    while($f=mysqli_fetch_array($q)){
-                        $chiper="AES-128-CTR";//خوارزمية التشفير
-                        $option=0;
-                        $encryption_vi='1234567890123456';
-                        $encryption_key='Moad';
-                        $encryption_id=openssl_encrypt($f[0],$chiper,$encryption_key,$option,$encryption_vi); 
-                    ?>
-                <tr>
-                    <td><?php  echo $f[1]; ?></td>
-                    <td><?php  echo date('Y-m-d',strtotime($f[2])); ?></td>
-                    <td class="as12"><div class="multi-button">
-                    <a href="calegoryupdate.php?d=<?php echo base64_encode($encryption_id);?>"><button >تعديل </button>
-                        <a  onclick="deleteCatogry(this);" href="deleteCalegory.php?d=<?php 
-echo base64_encode($encryption_id); ?>"style="width:50%"> <button style="width:100%" name="delete" >حدف</button></a>
-                      </div></td>
-                </tr>
-                <?php }}
-                $conn_link->close();?>
-                
-                <tbody>
-            </table>
-        </div>
+        
     </div>
 </div>
-        
-</div>
-
 
 <!-- Start footer -->
     <div class="footer" id="footer">
@@ -145,17 +117,5 @@ echo base64_encode($encryption_id); ?>"style="width:50%"> <button style="width:1
         </div>
     </div>
 <!-- End footer -->
-
-
-
-<script  type = "text/javascript">
-function deleteCatogry(that){
-    var delete_func = confirm("هل تريد حذف  التصنيف");
-			if(delete_func==true){
-				window.location = anchor.attr("href");
-			}
-}
-
-</script>
 </body>
 </html>
