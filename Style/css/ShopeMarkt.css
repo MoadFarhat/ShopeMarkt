@@ -22,6 +22,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
+    
     font-family: 'Cairo', sans-serif;
     font-family: 'Open Sans', sans-serif;
     /* background-color: #2F387D; */
@@ -360,6 +361,7 @@ header nav .from i {
 /* Start Product */
 
 .product {
+    direction: rtl;
     padding-bottom: var(--main-padding-bottom);
     position: relative;
 }
@@ -474,6 +476,72 @@ header nav .from i {
     animation: moving-arrow 0.6s linear infinite;
 }
 /* End Product */
+/* Start Product View */
+.product_view {
+    /* width: 100vw; */
+    height: 100vh;
+    direction: rtl;
+    padding: 50px 0;
+}
+.product_view .container
+{
+    
+    /* margin-top: 100px; */
+}
+.product_view .newarrival 
+{
+    background: GREEN;
+    width: 50PX;
+    font-size: 20PX;
+    font-weight: bold;
+    color: white;
+}
+.product_view .asd12 i{
+    color: var(--main-color);
+    font-size: 30px;
+    /* background-color: #19c8fa; */
+}
+.product_view .neww{
+    text-align: right;
+}
+.product_view .neww h2
+{
+    padding-top: 10px;
+    color: #555;
+}
+.product_view .strat
+{
+    height: 15px;
+}
+.product_view .price
+{
+    color: #FE980F;
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.product_view input
+{
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 33px;
+    text-align: center;
+    width: 30px;
+}
+.product_view button
+{
+    margin-top: 50px;
+    padding: 10px 20px;
+}
+.product_view .cart
+{
+    background: #FE980F;
+    color: #ffffffff;
+    font-size: 15px;
+    margin-right: 20px;
+}
+/* End Product View */
+
 /* Start Category */
 .category {
     padding-top: 20px;
