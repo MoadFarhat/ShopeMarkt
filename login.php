@@ -33,10 +33,8 @@ else{
 <html> 
     <head>
         <title>تسجيل الدخول</title>
-        <link rel="stylesheet" href="Style/css/style1.css">
+        <link rel="stylesheet" href="Style/css/login_sinup.css">
         <link rel="stylesheet" href="Style/css/all.min.css">
-        <!-- Main Shope Markt Css File -->
-        <link rel="stylesheet" href="Style/css/ShopeMarkt.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,42 +44,31 @@ else{
         <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!-- Start Header -->
-        <div class="overlay"></div>
+    <div class="overlay"></div>
     <header >
         <div class="container">
             
             
-            <div class="wrapper">
-                <a href="signup.php"><span>تسجيل  </span></a>
-                </div>
-        <div class="wrapper">
-                <a href="login.php"><span>تسجيل دخول </span></a>
-                </div>
-                
-                <div class="search"  >
-                <form id="searchFormTop" action="" method="get" >
-                    <input type="text" class="searchbox" name="q" id="q" placeholder="بحث">
-                    <span class="search-btn-wrap">
-                        <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-                    </span>
-                </form>
-            </div>
-    
+                <div class="wrapper">
+                        <a href="signup.php"><span>تسجيل  </span></a>
+                        </div>
+                <div class="wrapper">
+                        <a href="login.php"><span>تسجيل دخول </span></a>
+                        </div>
                 <h1>Shope Markt</h1>
             <nav>
                 <ul>
-                    <li><a  href="#footer">حول</a></li>
-                    <li><a  href="#category" >الاقسام</a></li>
-                    <li><a class="active" href="#heade">الرئيسة</a></li>
+                    
+                    <li><a class="active" href="index.php">الرئيسة</a></li>
                 </ul>
             </nav>
-            <a class="logo" href="main.html">
+            <a class="logo" href="index.php">
                 <i class="fa-solid fa-shop"></i>
                 <!-- <img src="image/logo.png" alt="logo"> -->
             </a>
         </div>
     </header>
+    <!-- End Header -->
     <!-- End Header -->
     <div class="box">
         <div class="container">

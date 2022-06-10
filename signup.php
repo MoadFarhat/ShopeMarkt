@@ -51,10 +51,8 @@ header("location:user/user_home.html");
 <html>
     <head>
         <title>التسجيل</title>
-        <link rel="stylesheet" href="Style/css/style1.css">
+        <link rel="stylesheet" href="Style/css/login_sinup.css">
         <link rel="stylesheet" href="Style/css/all.min.css">
-         <!-- Main Shope Markt Css File -->
-         <link rel="stylesheet" href="Style/css/ShopeMarkt.css">
          
          <link rel="preconnect" href="https://fonts.googleapis.com">
          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,23 +77,13 @@ header("location:user/user_home.html");
                     <a href="login.php"><span>تسجيل دخول </span></a>
                     </div>
                     
-                    <div class="search"  >
-                    <form id="searchFormTop" action="" method="get" >
-                        <input type="text" class="searchbox" name="q" id="q" placeholder="بحث">
-                        <span class="search-btn-wrap">
-                            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-                        </span>
-                    </form>
-                </div>
                     <h1>Shope Markt</h1>
                 <nav>
                     <ul>
-                        <li><a  href="#footer">حول</a></li>
-                        <li><a  href="#category" >الاقسام</a></li>
-                        <li><a class="active" href="#heade">الرئيسة</a></li>
+                        <li><a class="active" href="index.php">الرئيسة</a></li>
                     </ul>
                 </nav>
-                <a class="logo" href="main.html">
+                <a class="logo" href="index.php">
                     <i class="fa-solid fa-shop"></i>
                     <!-- <img src="image/logo.png" alt="logo"> -->
                 </a>
@@ -103,9 +91,9 @@ header("location:user/user_home.html");
         </header>
         <div class="box">
             <div class="container">
-        <div class="from-box">
+        <div  class="sign-box">
             <h1>التسجيل  </h1>
-            <form method="post" action="" enctype="multipart/form-data">
+            <form class="sign" method="post" action="" enctype="multipart/form-data">
             <div class="input-box">
                 <input type="text" name="username" placeholder="ادخل الاسم" required>
             </div>
@@ -125,9 +113,18 @@ header("location:user/user_home.html");
             <div class="input-box">
                 <input type="text" name="adress" placeholder="ادخل العنوان " required>
             </div>
-            <div class="input-box">
-                <input type="file" name="image"placeholder="ادخل العنوان " required/>
-            </div>
+            <div class="img1">
+              <div class="img">
+                <label for="inputTag">
+                  ادخل الصورة 
+                  <!-- <br/> -->
+                  <!-- <i class="fa fa-2x fa-camera"></i> -->
+                  <input id="inputTag" type="file"/>
+                  <!-- <br/> -->
+                  <!-- <span id="imageName"></span> -->
+                </label>
+              </div>
+              </div>
             <button type="submit" name="login" class="login-button">التسجيل</button>
             </form>
          </div>
