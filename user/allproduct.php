@@ -1,66 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shope Markt</title>
-    <!-- Main Shope Markt Css File -->
-    <link rel="stylesheet" href="Style/css/user.css">
-    <!-- Main bootstrap Css File -->
-    <link rel="stylesheet" href="Style/css/bootstrap.min.css">
-    <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="Style/css/all.min.css">
-    <!-- RenderAll Elements Normally -->
-    <link rel="stylesheet" href="Style/css/normalize.css">
-    <!-- Fonts google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  
-</head>
-<body>
-    <!-- Start Header -->
-    <header >
-        <div class="container">
-            <div class="icons">
-            <a href="#"><i class="fa-solid fa-cart-shopping "></i></a> 
-            <a href="index.html"><i class="fa-regular fa-user"></i></i></a> 
-        </div>
-        <div class="search"  >
-                <form id="searchFormTop" action="" method="get" >
-                    <input type="text" class="searchbox" name="q" id="q" placeholder="بحث">
-                    <span class="search-btn-wrap">
-                        <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-                    </span>
-                </form>
-            </div>
-                <h1>Shope Markt</h1>
-            <nav>
-                <ul>
-                    <li><a  href="#footer">حول</a></li>
-                    <li><a  href="#category" >الاقسام</a></li>
-                    <li><a class="active" href="../main.html">الرئيسة</a></li>
-                </ul>
-            </nav>
-            <a class="logo" href="../index.html">
-                <i class="fa-solid fa-shop"></i>
-                <!-- <img src="image/logo.png" alt="logo"> -->
-            </a>
-        </div>
-    </header>
-    <!-- End Header -->
-    <!-- Start Landing -->
-    <div class="landing" id="heade">
-        <div class="overlay"></div>
-            </div>   
-    </div>
-<!-- End Landing -->
+<?php
+include 'style/include/header.php';
+?>
+
+
+
 <!-- Start Profile -->
 <div class="profile">
       
@@ -87,10 +30,10 @@
                                 <!-- <p class="proile-rating">رقم الهاتف : <span>0926512478</span></p> -->
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link " id="home-tab" data-toggle="tab" href="index.html" role="tab" aria-controls="home" aria-selected="true">معلومات</a>
+                                <a class="nav-link " id="home-tab" data-toggle="tab" href="index.php" role="tab" aria-controls="home" aria-selected="true">معلومات</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="allproduct.html" role="tab" aria-controls="profile" aria-selected="false">منتجات</a>
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="allproduct.php" role="tab" aria-controls="profile" aria-selected="false">منتجات</a>
                             </li>
     
                         </ul>
@@ -98,10 +41,10 @@
                 </div>
                 <div class="col-md-2">
                   <div class="wrapper">
-                    <a href="user_edit.html"><span>تعديل  </span></a>
+                    <a href="user_edit.php"><span>تعديل  </span></a>
                     </div>
                   <div class="wrapper">
-                    <a href="new_product.html"><span>اضافة منتج  </span></a>
+                    <a href="new_product.php"><span>اضافة منتج  </span></a>
                     </div>
                     <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="تعديل"/> -->
                 </div>
@@ -138,9 +81,9 @@
                             <!-- <a href="">أضف إلى السلة</a>
                             <i class="fas fa-long-arrow-alt-left"></i> -->
                             <div class="wrapper">
-                                <a href="signup.html"><span>حدف  </span></a>
+                                <a href="signup.php"><span>حدف  </span></a>
                                 </div><div class="wrapper">
-                                    <a href="signup.html"><span>تعديل  </span></a>
+                                    <a href="signup.php"><span>تعديل  </span></a>
                                     </div>
                         </div>
                     </div>
@@ -162,9 +105,9 @@
                             <!-- <a href="">أضف إلى السلة</a>
                             <i class="fas fa-long-arrow-alt-left"></i> -->
                             <div class="wrapper">
-                                <a href="signup.html"><span>حدف  </span></a>
+                                <a href="signup.php"><span>حدف  </span></a>
                                 </div><div class="wrapper">
-                                    <a href="signup.html"><span>تعديل  </span></a>
+                                    <a href="signup.php"><span>تعديل  </span></a>
                                     </div>
                         </div>
                     </div>
@@ -186,9 +129,9 @@
                             <!-- <a href="">أضف إلى السلة</a>
                             <i class="fas fa-long-arrow-alt-left"></i> -->
                             <div class="wrapper">
-                                <a href="signup.html"><span>حدف  </span></a>
+                                <a href="signup.php"><span>حدف  </span></a>
                                 </div><div class="wrapper">
-                                    <a href="signup.html"><span>تعديل  </span></a>
+                                    <a href="signup.php"><span>تعديل  </span></a>
                                     </div>
                         </div>
                     </div>
@@ -210,9 +153,9 @@
                             <!-- <a href="">أضف إلى السلة</a>
                             <i class="fas fa-long-arrow-alt-left"></i> -->
                             <div class="wrapper">
-                                <a href="signup.html"><span>حدف  </span></a>
+                                <a href="signup.php"><span>حدف  </span></a>
                                 </div><div class="wrapper">
-                                    <a href="signup.html"><span>تعديل  </span></a>
+                                    <a href="signup.php"><span>تعديل  </span></a>
                                     </div>
                         </div>
                     </div>
@@ -234,9 +177,9 @@
                             <!-- <a href="">أضف إلى السلة</a>
                             <i class="fas fa-long-arrow-alt-left"></i> -->
                             <div class="wrapper">
-                                <a href="signup.html"><span>حدف  </span></a>
+                                <a href="signup.php"><span>حدف  </span></a>
                                 </div><div class="wrapper">
-                                    <a href="signup.html"><span>تعديل  </span></a>
+                                    <a href="signup.php"><span>تعديل  </span></a>
                                     </div>
                         </div>
                     </div>
@@ -252,60 +195,7 @@
   
 </div>
     <!-- End Profile -->
-    <!-- Start Category -->
-    <div class="category" id="category">
-        <h2 class="main-title">الاقسام</h2>
-        <div class="container">
-            <div class="box">
-            <i class="fa-solid fa-car fa-4x"></i>
-            <!-- <h3>سيارات</h3> -->
-                <div class="info">
-                    <a href="search-category.html">سيارات</a>
-                </div>
-            </div>
-            <div class="box">
-            <i class="fa-solid fa-shirt fa-4x"></i>
-            <!-- <h3> ملابس</h3> -->
-                <div class="info">
-                    <a href="search-category.html">ملابس</a>
-                </div>
-            </div>
-            <div class="box">
-            <i class="fa-solid fa-tv fa-4x"></i>               
-            <!-- <h3>الاجهزة الكترونية</h3> -->
-                <div class="info">
-                    <a href="search-category.html">الاجهزة الكترونية</a>
-                </div>
-            </div>
-            <div class="box">
-            <i class="fa-solid fa-book fa-4x"></i>                
-                <div class="info">
-                    <a href="search-category.html">كتب</a>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- End Category -->
-    <!-- Start footer -->
-    <div class="footer" id="footer">
-        <div class="container">
-            <i  class="fa-solid fa-shop logo"></i>
-            <h2>Shope Markt</h2>
-            <div class="icon">
-                <a href="facebook.com/"><i class="fa-brands fa-facebook-f"></i></a> 
-                <a href="twitter.com"><i class="fa-brands fa-twitter"></i></i></a> 
-                <a href="snapchat.com"><i class="fa-brands fa-snapchat"></i></i></a> 
-                <a href="instagram.com"><i class="fa-brands fa-instagram"></i></i></a> 
-                
-            
-            
-            </div>
-            <p>&copy; 2022 <span>Shope Markt</span> جميع الحقوق محفوظة</p>
-            
-        </div>
-    </div>
-    <!-- End footer -->
-    <script src="style/js/bootstrap.min.js"></script>
-    <script src="style/js/jquery.min.js"></script>
-</body>
-</html>
+<?php
+    include 'style/include/footer.php';
+?>
+   
