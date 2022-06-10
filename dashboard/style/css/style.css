@@ -997,7 +997,7 @@ color: #fff;
     transition: all .35s;
   }
   
-  .admin .wrapper a span{
+  .admin .wrapper a button span{
     position: relative;
     z-index: 2;
   }
