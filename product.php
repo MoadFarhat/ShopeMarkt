@@ -1,67 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shope Markt</title>
-    <!-- Main Shope Markt Css File -->
-    <link rel="stylesheet" href="Style/css/ShopeMarkt.css">
-    <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="Style/css/all.min.css">
-    <!-- RenderAll Elements Normally -->
-    <link rel="stylesheet" href="Style/css/normalize.css">
-    <!-- RenderAll Elements bot -->
-    <link rel="stylesheet" href="Style/css/bootstrap.min.css">
-    <!-- Fonts google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  
-
-</head>
-<body>
-    <!-- Start Header -->
-    <header >
-        <div class="container">
-            <div class="icons">
-            <a href="#"><i class="fa-solid fa-cart-shopping "></i></a> 
-            <a href="user/index.html"><i class="fa-regular fa-user"></i></i></a> 
-        </div>
-        <div class="search"  >
-                <form id="searchFormTop" action="" method="get" >
-                    <input type="text" class="searchbox" name="q" id="q" placeholder="بحث">
-                    <span class="search-btn-wrap">
-                        <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-                    </span>
-                </form>
-            </div>
-                <h1>Shope Markt</h1>
-            <nav>
-                <ul>
-                    <li><a  href="#footer">حول</a></li>
-                    <li><a  href="#category" >الاقسام</a></li>
-                    <li><a class="active" href="#heade">الرئيسة</a></li>
-                </ul>
-            </nav>
-            <a class="logo" href="index.html">
-                <i class="fa-solid fa-shop"></i>
-                <!-- <img src="image/logo.png" alt="logo"> -->
-            </a>
-        </div>
-    </header>
-    <!-- End Header -->
-    <!-- Start Landing -->
-    <div class="landing" id="heade">
-        <div class="overlay"></div>
-            </div>   
-    </div>
-    <!-- End Landing -->
+<?php
+include 'Style/include/header.php';
+?>
     <!-- Start Product View -->
     <div class="product_view">
         <div class="container">
@@ -199,61 +138,7 @@
     </div>
 
     <!-- End Product -->
-    <!-- Start Category -->
-        <div class="category" id="category">
-            <h2 class="main-title">الاقسام</h2>
-            <div class="container">
-                <div class="box">
-                <i class="fa-solid fa-car fa-4x"></i>
-                <!-- <h3>سيارات</h3> -->
-                    <div class="info">
-                        <a href="search-category.html">سيارات</a>
-                    </div>
-                </div>
-                <div class="box">
-                <i class="fa-solid fa-shirt fa-4x"></i>
-                <!-- <h3> ملابس</h3> -->
-                    <div class="info">
-                        <a href="search-category.html">ملابس</a>
-                    </div>
-                </div>
-                <div class="box">
-                <i class="fa-solid fa-tv fa-4x"></i>               
-                <!-- <h3>الاجهزة الكترونية</h3> -->
-                    <div class="info">
-                        <a href="search-category.html">الاجهزة الكترونية</a>
-                    </div>
-                </div>
-                <div class="box">
-                <i class="fa-solid fa-book fa-4x"></i>                
-                    <div class="info">
-                        <a href="search-category.html">كتب</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <!-- End Category -->
-    <!-- Start footer -->
-    <div class="footer" id="footer">
-        <div class="container">
-            <i  class="fa-solid fa-shop logo"></i>
-            <h2>Shope Markt</h2>
-            <div class="icon">
-                <a href="facebook.com/"><i class="fa-brands fa-facebook-f"></i></a> 
-                <a href="twitter.com"><i class="fa-brands fa-twitter"></i></i></a> 
-                <a href="snapchat.com"><i class="fa-brands fa-snapchat"></i></i></a> 
-                <a href="instagram.com"><i class="fa-brands fa-instagram"></i></i></a> 
-                
-            
-            
-            </div>
-            <p>&copy; 2022 <span>Shope Markt</span> جميع الحقوق محفوظة</p>
-            
-        </div>
-    </div>
-    <!-- End footer -->
-    <script src="style/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="style/js/bootstrapp.min.js"></script>
-    <script src="style/js/popper.min.js"></script>
-</body>
-</html>
+
+<?php
+include 'Style/include/footer.php';
+?>
