@@ -5,77 +5,9 @@ if($_SESSION['rank']!="مدير"){
 header("location:../login.php?e=هذه الصفحة خاصة بالمدير");
 }
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shope Markt</title>
-    <!-- Main Shope Markt Css File -->
-    <link rel="stylesheet" href="style/css/style.css">
-    <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="style/css/all.min.css">
-    <!-- RenderAll Elements Normally -->
-    <link rel="stylesheet" href="style/css/normalize.css">
-    <!-- Fonts google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">  
-
-</head>
-<body>
-    <!-- Start Header -->
-    
-    <header >
-        <div class="container">
-            <div class="wrapper">
-                <a href="../index.html"><span>صفحة رئيسية  </span></a>
-                </div>
-                <h1>Shope Markt</h1>
-           
-            <a class="logo" href="main.html">
-                <i class="fa-solid fa-shop"></i>
-            </a>
-        </div>
-    </header>
-<!-- End Header -->
-<!-- Start Landing -->
-    <div class="landing" id="">
-        <div class="overlay"></div>
-        <h1>لوحة التحكم</h1>
-    </div>
-<!-- End Landing -->
-<!-- Start control -->
-<div class="control">
-    <div class="container">
-        <div class="wrapper">
-            <a href="index.html"><i class="fas fa-home"></i>
-                <span>لوحة تحكم </span></a>
-        </div>
-        <div class="wrapper">
-            <a href="calegory.php"><i class="fas fa-paper-plane"></i>
-                <span>الاقسام</span></a>
-        </div>
-        <div class="wrapper">
-            <a href="newadmin.html"><i class="fas fa-user-friends"></i>
-                <span>اضافة مدير</span></a>
-        </div>
-        <div class="wrapper">
-            <a href="user.html"><i class="fas fa-user-friends"></i>
-                <span>مستخدمين</span></a>
-        </div>
-    </div>
-</div>
-<!-- End control -->
+<?php
+include 'style/include/header.php';
+?>
 <!-- Start Stats -->
 <div class="stats">
     <h2 class="main-title">بيانات المتجر</h2>
@@ -112,13 +44,6 @@ header("location:../login.php?e=هذه الصفحة خاصة بالمدير");
     </div>
 </div>
 <!-- End Stats -->
-
-    <!-- Start footer -->
-    <div class="footer" id="footer">
-        <div class="container">
-            <p>&copy; 2022 <span>Shope Markt</span> جميع الحقوق محفوظة</p>
-        </div>
-    </div>
-    <!-- End footer -->
-</body>
-</html>
+<?php
+include 'style/include/footer.php';
+?>
