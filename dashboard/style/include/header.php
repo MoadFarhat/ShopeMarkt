@@ -31,11 +31,11 @@
     <header >
         <div class="container">
             <div class="wrapper">
-                <a href="../index.html"><span>صفحة رئيسية  </span></a>
+                <a href="../index.php"><span>صفحة رئيسية  </span></a>
                 </div>
                 <h1>Shope Markt</h1>
            
-            <a class="logo" href="main.html">
+            <a class="logo" href="../index.php">
                 <i class="fa-solid fa-shop"></i>
             </a>
         </div>
@@ -51,7 +51,7 @@
 <div class="control">
     <div class="container">
         <div class="wrapper">
-            <a href="index.html"><i class="fas fa-home"></i>
+            <a href="index.php"><i class="fas fa-home"></i>
                 <span>لوحة تحكم </span></a>
         </div>
         <div class="wrapper">
@@ -59,11 +59,11 @@
                 <span>الاقسام</span></a>
         </div>
         <div class="wrapper">
-            <a href="newadmin.html"><i class="fas fa-user-friends"></i>
+            <a href="newadmin.php"><i class="fas fa-user-friends"></i>
                 <span>اضافة مدير</span></a>
         </div>
         <div class="wrapper">
-            <a href="user.html"><i class="fas fa-user-friends"></i>
+            <a href="user.php"><i class="fas fa-user-friends"></i>
                 <span>مستخدمين</span></a>
         </div>
     </div>
