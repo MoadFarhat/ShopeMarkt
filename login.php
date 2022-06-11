@@ -18,7 +18,7 @@ if(mysqli_num_rows($com)>0){
     $_SESSION['user_id']=$f[0];
     $_SESSION['rank']=$f['Rank'];
    if( $_SESSION['rank']==="مستخدم")
- header("location:user/user_home.html");
+ header("location:user/index.php");
     else if( $_SESSION['rank']==="مدير")
     header("location:dashboard/index.php");
 }

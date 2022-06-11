@@ -144,6 +144,11 @@ header .icons a{
 header .icons a:hover{
     color: var(--main-color);
 }
+header .list{
+    display: flex;
+    flex-direction: row;
+    
+}
 header .wrapper{
     /* position: fixed; */
     /* top: 50%;

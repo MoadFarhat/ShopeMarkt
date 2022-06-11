@@ -1,3 +1,6 @@
+<?php
+require_once("../php/phpConect/chickLogin.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,10 +35,30 @@
     <!-- Start Header -->
     <header >
         <div class="container">
-            <div class="icons">
-            <a href="#"><i class="fa-solid fa-cart-shopping "></i></a> 
-            <a href="index.php"><i class="fa-regular fa-user"></i></i></a> 
-        </div>
+            <?php
+                if($_SESSION['rank']==="مدير")
+                {
+            ?>
+                    <div class="wrapper">
+                        <a href="../dashboard/index.php"><span>لوحة التحكم  </span></a>
+                    </div>
+                    <div class="wrapper">
+                        <a href="logout.php"><span>تسجيل خروج   </span></a>
+                    </div>
+                        
+            <?php
+                    }else{
+            ?>
+                <div class="icons">
+                    <a href="#"><i class="fa-solid fa-cart-shopping "></i></a> 
+                    <a href="user/index.php"><i class="fa-regular fa-user"></i></i></a> 
+                </div>
+                <div class="wrapper">
+                        <a href="logout.php"><span>تسجيل خروج   </span></a>
+                </div>
+            <?php  
+                    } 
+            ?>
         <div class="search"  >
                 <form id="searchFormTop" action="" method="get" >
                     <input type="text" class="searchbox" name="q" id="q" placeholder="بحث">
@@ -49,10 +72,10 @@
                 <ul>
                     <li><a  href="#footer">حول</a></li>
                     <li><a  href="#category" >الاقسام</a></li>
-                    <li><a class="active" href="../main.php">الرئيسة</a></li>
+                    <li><a class="active" href="main.php">الرئيسة</a></li>
                 </ul>
             </nav>
-            <a class="logo" href="../index.php">
+            <a class="logo" href="main.php">
                 <i class="fa-solid fa-shop"></i>
                 <!-- <img src="image/logo.png" alt="logo"> -->
             </a>

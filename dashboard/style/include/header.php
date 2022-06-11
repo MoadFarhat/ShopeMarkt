@@ -30,9 +30,18 @@
     
     <header >
         <div class="container">
-            <div class="wrapper">
-                <a href="../index.php"><span>صفحة رئيسية  </span></a>
-                </div>
+        <div class="list"><div class="wrapper">
+                <a href="../user/main.php"><span>صفحة رئيسية  </span></a>
+            </div>
+            
+        <div class="wrapper">
+                <a href="../user/logout.php"><span>تسجيل خروج  </span></a>
+            </div>
+        </div>
+        
+            
+           
+        
                 <h1>Shope Markt</h1>
            
             <a class="logo" href="../index.php">
@@ -46,14 +55,16 @@
         <div class="overlay"></div>
         <h1>لوحة التحكم</h1>
     </div>
+    
 <!-- End Landing -->
 <!-- Start control -->
 <div class="control">
     <div class="container">
         <div class="wrapper">
-            <a href="index.php"><i class="fas fa-home"></i>
+            <a href="../user/main.php"><i class="fas fa-home"></i>
                 <span>لوحة تحكم </span></a>
         </div>
+        
         <div class="wrapper">
             <a href="calegory.php"><i class="fas fa-paper-plane"></i>
                 <span>الاقسام</span></a>

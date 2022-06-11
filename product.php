@@ -118,7 +118,6 @@ include 'Style/include/header.php';
                 <div class="top">
                   <a href="#"><h3>قميص</h3></a>  
                   <p>10%</p>
-
                 </div>
                 <div class="content">
                     <p> وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس </p>
