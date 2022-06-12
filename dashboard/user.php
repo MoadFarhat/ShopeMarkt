@@ -55,24 +55,24 @@ require_once('../php/phpConect/mysql_connact.php');
                     <th><img width="35px" height="35px" src="../image/usersimage/<?php echo $f['Image']  ?>" alt=""></th>
                     <td class="as12"><div class="multi-button">
                         <button class="updat" id="update">تعديل </button>
-                        <button class="delete" >حدف</button>
+                        <button class="delete" id="delete" >حدف</button>
                         <?php
                         if($f['Rank']==="مستخدم"){
                         echo"<script>
                         document.getElementById('update').style.display='none';
-                           $('.delete').show();
+                        document.getElementById('delete').style.display='block';
                         </script>";
                         }
-                        else if ($f['Rank']==="مدير"){
+                         if ($f['Rank']==="مدير"){
                             echo"<script>
-                                $('.updat').show();
-                                $('.delete').hide();
+                            document.getElementById('update').style.display='block';
+                            document.getElementById('delete').style.display='none';
                              </script>";
                         }
-                     else if ($f['Rank']==="موظف"){
+                      if ($f['Rank']==="موظف"){
                             echo"<script>
-                                $('.updat').show();
-                                $('.delete').show();
+                            document.getElementById('update').style.display='block';
+                            document.getElementById('delete').style.display='block';
                              </script>";
                         }
                         
@@ -81,36 +81,7 @@ require_once('../php/phpConect/mysql_connact.php');
                     </td>
                 </tr>
                 <?php $x++;} }?>
-                <tr>
-                    <th>2</th>
-                    <th>مختار</th>
-                    <th>456</th>
-                    <th>مستخدم</th>
-                    <th>moktar@gmail.com</th>
-                    <th>0922545634</th>
-                    <th>طرابلس</th>
-                    <th><img width="35px" height="35px" src="../image/user.jpg" alt=""></th>
-                    <td class="as12"><div class="multi-button">
-                        <!-- <button>تعديل </button> -->
-                      
-                      </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <th>خليفة</th>
-                    <th>456789</th>
-                    <th>موظف</th>
-                    <th>alz@gmail.com</th>
-                    <th>0944569273</th>
-                    <th>زليتن</th>
-                    <th><img width="35px" height="35px" src="../image/user.jpg" alt=""></th>
-                    <td class="as12"><div class="multi-button">
-                        <button>تعديل </button>
-                        <button>حدف</button>
-                      </div>
-                    </td>
-                </tr>
+             
                 
                 <tbody>
             </table>

@@ -28,12 +28,18 @@ include 'style/include/header.php';
         </div>
         <div class="box">
             <i class="fa-solid fa-cart-shopping fa-2x fa-fw"></i>
-            <span class="number" data-goal="135">6521</span>
+            <?php  $q=$conn_link->query("SELECT count(*) FROM product")or die();
+            $proudect=mysqli_fetch_array($q);
+            ?>
+            <span class="number" data-goal="135">6521<?php echo $proudect[0];?></span>
             <span class="text">منتجات</span>
         </div>
         <div class="box">
             <i class="fa-solid fa-list fa-2x fa-fw"></i>
-            <span class="number" data-goal="50">15</span>
+            <?php  $q=$conn_link->query("SELECT count(*) FROM category")or die();
+            $category=mysqli_fetch_array($q);
+            ?>
+            <span class="number" data-goal="50"><?php echo $category[0]; ?></span>
             <span class="text">الاقسام</span>
         </div>
         <div class="box">
