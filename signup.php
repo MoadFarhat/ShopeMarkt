@@ -38,7 +38,7 @@ else{
   $sql1=mysqli_query($conn_link,"SELECT UserID from user WHERE Password='$password' and Name='$name'")or die("error");
   $fetch=mysqli_fetch_array($sql1);
   $_SESSION['id_user']=$fetch[0];
-header("location:user/user_home.html");
+header("location:user/index.php");
 
 
 }
@@ -119,7 +119,7 @@ header("location:user/user_home.html");
                   ادخل الصورة 
                   <!-- <br/> -->
                   <!-- <i class="fa fa-2x fa-camera"></i> -->
-                  <input id="inputTag" type="file"/>
+                  <input id="inputTag" name="image" type="file"/>
                   <!-- <br/> -->
                   <!-- <span id="imageName"></span> -->
                 </label>

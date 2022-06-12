@@ -6,7 +6,37 @@ require_once('../php/phpConect/mysql_connact.php');
 
 
 if(isset($_POST['update'])){
+$name=mysqli_real_escape_string($conn_link,$_POST['name']);
+$password=base64_encode(mysqli_real_escape_string($conn_link,$_POST['password']));
+$Email=mysqli_real_escape_string($conn_link,$_POST['Email']);
+$phone=mysqli_real_escape_string($conn_link,$_POST['phone']);
+$adress=mysqli_real_escape_string($conn_link,$_POST['adress']);
+$mfile=$_FILES['image']['name'];
+if(empty($name)or empty($password)or empty($Email) or empty($phone)  or empty($adress) ){
+  echo "<script> alert('الرجاء إدخال جميع الحقول')</script>";
+}
+else{
+  $regphone='/^09(1|2|4)[\d]{7}$/';
+  if(!preg_match($regphone,$phone)){
+    echo"<script> alert('الرجاء إدخال رقم الهاتف بشكل صحيح');</script>";
+    }
+    else{
+      $chiper="AES-128-CTR";//خوارزمية التشفير
+$option=0;
+$encryption_vi='1234567890123456';
+$encryption_key='Moad';
 
+$encryption_password=openssl_encrypt($password,$chiper,$encryption_key,$option,$encryption_vi);
+      $mfiletemp=$_FILES['image']['tmp_name'];
+    $upload_file='../image/usersimage/'.$mfile;
+    move_uploaded_file($mfiletemp,$upload_file);
+     
+   $sql="UPDATE  user SET Name='$name',Email='$Email',Password='$encryption_password',Address='$adress',phone='$phone',Image='$mfile' WHERE UserID='$_SESSION[user_id]'";
+   $query=mysqli_query($conn_link,$sql)or die("error55");
+   header("location:index.php");
+    }
+
+}
 }
 
 
@@ -22,7 +52,7 @@ if(isset($_POST['update'])){
     <div class="container">
         <div class="from-box">
             <div class="page">
-              <form method="post" action="">
+              <form method="post" action=""  enctype="multipart/form-data">
                 <label class="field field_v1">
                   <input class="field__input" placeholder="ادخل اسم مستخدم" name="name" value="<?php echo $row['Name'];?>" required>
                   <span class="field__label-wrap">
@@ -77,7 +107,7 @@ if(isset($_POST['update'])){
                   ادخل الصورة 
                   <!-- <br/> -->
                   <!-- <i class="fa fa-2x fa-camera"></i> -->
-                  <input id="inputTag" type="file" name="image" value="<?php echo $row['Image'];?>"/>
+                  <input id="inputTag" type="file" name="image" value="<?php echo $row['Image'];?>" />
                   <!-- <br/> -->
                   <!-- <span id="imageName"></span> -->
                 </label>

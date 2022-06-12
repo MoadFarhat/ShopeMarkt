@@ -21,17 +21,20 @@ header("location:index.php");
       $f=mysqli_fetch_array($comm);
       ?>
       <div class="container emp-profile">
-        <form method="post" name="update" id="submit"  action="index.php?m=<?php echo 1;?>" enctype="multipart/form-data">
+        
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img" >
                         <img src="../image/usersimage/<?php echo $f['Image'];?>" alt=""/>
                         <div class="file btn btn-lg btn-primary" >
+                        <form method="post" name="update" id="submit"  action="index.php?m=<?php echo 1;?>" enctype="multipart/form-data">
                             تغير الصورة
                             <input type="file"  id="image" name="file"/>
-                        </div>
+                            </form>  
+                            </div>
                     </div>
                 </div>
+                    
                 <div class="col-md-6">
                     <div class="profile-head">
                                 <h5>
@@ -39,15 +42,15 @@ header("location:index.php");
                                 </h5>
                                 <h6>
                                     <?php  echo $f['Address'];  ?>
-                                    ليبيا .. زليتن
+                                   
                                 </h6>
                                 <!-- <p class="proile-rating">رقم الهاتف : <span>0926512478</span></p> -->
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist" >
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="index.html" role="tab" aria-controls="home" aria-selected="true">معلومات</a>
+                                <a class="nav-link active" id="home-tab" href="index.php" >معلومات</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="allproduct.html" role="tab" aria-controls="profile" aria-selected="false">منتجات</a>
+                                <a class="nav-link" id="profile-tab" href="allproduct.php">منتجات</a>
                             </li>
     
                         </ul>
@@ -58,7 +61,7 @@ header("location:index.php");
                     <a href="user_edit.php"><span>تعديل  </span></a>
                     </div>
                   <div class="wrapper">
-                    <a href="new_product.html"><span>اضافة منتج  </span></a>
+                    <a href="new_product.php"><span>اضافة منتج  </span></a>
                     </div>
                     <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="تعديل"/> -->
                 </div>
@@ -72,7 +75,7 @@ header("location:index.php");
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-content profile-tab" id="myTabContent" style="margin-top: 2rem;">
                         <div class="tab-pane fade show active as123"  id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -119,12 +122,16 @@ header("location:index.php");
                     </div>
                 </div>
             </div>
-        </form>           
+                  
     </div>
   
 </div>
     <!-- End Profile -->
-    <script type="text/javascript">
+  
+<?php
+    include 'style/include/footer.php';
+?>
+      <script type="text/javascript">
         $(document).ready(function(){
             $('#image').change(function(){
     var input=$(this).val();
@@ -137,7 +144,3 @@ else{
 })
 })
     </script>
-<?php
-    include 'style/include/footer.php';
-?>
-    
