@@ -50,8 +50,8 @@ require_once("../php/phpConect/chickLogin.php");
                     }else{
             ?>
                 <div class="icons">
-                    <a href="#"><i class="fa-solid fa-cart-shopping "></i></a> 
-                    <a href="user/index.php"><i class="fa-regular fa-user"></i></i></a> 
+                    <a href="card.html"><i class="fa-solid fa-cart-shopping "></i></a> 
+                    <a href="index.php"><i class="fa-regular fa-user"></i></i></a> 
                 </div>
                 <div class="wrapper">
                         <a href="logout.php"><span>تسجيل خروج   </span></a>
