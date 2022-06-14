@@ -54,7 +54,7 @@ include 'style/include/header.php';
                     <td><?php  echo date('Y-m-d',strtotime($f[2])); ?></td>
                     <td class="as12"><div class="multi-button">
                     <a href="calegoryupdate.php?d=<?php echo base64_encode($encryption_id);?>"><button >تعديل </button>
-                        <a  onclick="deleteCatogry(this);" href="deleteCalegory.php?d=<?php 
+                        <a  onclick="deleteCatogry(this);  return false;" href="deleteCalegory.php?d=<?php 
 echo base64_encode($encryption_id); ?>"style="width:50%"> <button style="width:100%" name="delete" >حدف</button></a>
                       </div></td>
                 </tr>
