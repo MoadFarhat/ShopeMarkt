@@ -13,7 +13,16 @@ if(isset($_GET['m'])){
     }
 ?>
 
-
+  <!-- Start Delete Product -->
+  <?php
+ 
+  if (isset($_GET['ProductID'])) {
+    $idproduct = $_GET['ProductID'];
+    $query = "DELETE FROM product WHERE ProductID = '$idproduct'";
+    $delete = mysqli_query($conn_link, $query);
+  }
+  ?>
+  <!-- End Delete Product -->
 
 <!-- Start Profile -->
 <div class="profile">
@@ -124,7 +133,7 @@ if(isset($_GET['m'])){
                             <!-- <a href="">أضف إلى السلة</a>
                             <i class="fas fa-long-arrow-alt-left"></i> -->
                             <div class="wrapper">
-                                <a href="deleteproudect.php?$id=<?php echo $row[0];?>"><span>حدف  </span></a>
+                                <a class="confirm" href="allproduct.php?ProductID=<?php echo $row['ProductID'];?>"><span>حدف  </span></a>
                                 </div><div class="wrapper">
                                     <a href="new_product.php?$id=<?php echo $row[0];?>"><span>تعديل  </span></a>
                                     </div>
@@ -164,4 +173,8 @@ else{
     }
 })
 })
-    </script>
+    
+    $('.confirm').click(function() {
+        return confirm("هل أنت متأكد ؟");
+    });
+</script>
