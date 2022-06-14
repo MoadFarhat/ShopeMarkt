@@ -48,7 +48,7 @@ if(mysqli_num_rows($com)>0){
 else{
     $_SESSION['login_attemts']+=1;
   // 
-  $_SESSION['error']="خطأ في إدخال إيميل المستخدم أو كلمة المرور";
+  $_SESSION['error']="خطأ في إدخال بريد الكتروني او كلمة المرور";
   
 }
 }
@@ -102,7 +102,7 @@ else{
                 <form action="" method="post">
              <h1>تسجيل الدخول </h1>
            <?php if(isset($_SESSION['error'])){
- echo '<p style=background:red>'.$_SESSION['error'].'</p>';
+ echo '<p  class="error" ><i class="fa-solid fa-circle-exclamation"></i>'.$_SESSION['error'].'</p>';
            }
            ?>
              <div class="input-box">
@@ -119,7 +119,7 @@ else{
          </div>
          <?php if($_SESSION['login_attemts']>2){
             $_SESSION["locked"]=time();
-            echo "<p>الرجاء إعادة المحاولة بعد 5 ثواني </p>";
+            echo "<p class='error5min'><i class='fa-solid fa-circle-exclamation'></i>الرجاء إعادة المحاولة بعد 5  ثواني </p> ";
             
             }
             
