@@ -20,6 +20,7 @@ $mfile=$_FILES['image']['name'];
 if(empty($name)or empty($email)or empty($phone)or empty($password) or empty($address) ){
     header("location:signup.php?e=الرجاء تعبئة جيع الحقول");
 }
+
 if(!preg_match($regphone,$phone)){
 echo"<script> alert('الرجاء إدخال رقم الهاتف بشكل صحيح');</script>";
 }
@@ -33,13 +34,21 @@ else{
     $upload_file='image/usersimage/'.$mfile;
     move_uploaded_file($mfiletemp,$upload_file);
    $rank="مستخدم";
+   $q=$conn_link->query("SELECT Password FROM user WHERE Password='$encryption_password'")or die();
+  
+   if(mysqli_num_rows($q)>0){
+    echo"<script> alert('الرجاء إدخال كلمة مرور أخري');</script>";
+  }
+  else{
+   
+
    $sql="INSERT INTO user (Name,Email,Password,Address,phone,Rank,Image) VALUES('$name','$email','$encryption_password','$address','$phone','$rank','$mfile')";
    $query=mysqli_query($conn_link,$sql)or die("error55");
   $sql1=mysqli_query($conn_link,"SELECT UserID from user WHERE Password='$password' and Name='$name'")or die("error");
   $fetch=mysqli_fetch_array($sql1);
   $_SESSION['id_user']=$fetch[0];
 header("location:user/index.php");
-
+}
 
 }
 }
