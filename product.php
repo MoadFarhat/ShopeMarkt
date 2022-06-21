@@ -1,23 +1,38 @@
 <?php
 include 'Style/include/header.php';
+require_once 'php/phpConect/mysql_connact.php';
+$encryption_id=base64_decode($_GET['r']);
+$chiper="AES-128-CTR";//خوارزمية التشفير
+$option=0;
+$encryption_vi='1234567890123456';
+$encryption_key='Moad';
+$id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_vi);
+
 ?>
     <!-- Start Product View -->
     <div class="product_view">
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
+                    <?php $query=$conn_link->query("SELECT * FROM product WHERE ProductID='$id'")or die ("error in");
+                    $row=mysqli_fetch_array($query); 
+                    $data=$row['Image'] ;
+                        $res=explode(" ",$data);
+                        $count=count($res)-1;
+                        ?>
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="image/jacket-01.jpg" alt="shoe1">
+                                <img class="d-block w-100" src="image/image Proudect/<?php  echo $res[1];?>">
                             </div>
+                          
+                            <?php   for($j=2;$j<$count;$j++){ ?>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="image/jacket-00.jpg" alt="shoe2">
+                                <img class="d-block w-100" src="image/image Proudect/<?php  echo $res[$j];?>" >
                             </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="image/shirt-04.jpg" alt="shoe3">
-                            </div>
+                            <?php } ?>
                         </div>
+                     
                         <a class="carousel-control-prev asd12" href="#carouselExampleControls" role="button" data-slide="prev">
                             <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only"></span> -->
@@ -32,15 +47,17 @@ include 'Style/include/header.php';
                 </div>
                 <div class="neww">
                     <p class="newarrival text-center">جديد</p>
-                    <h2>حذاء رياضي</h2>
-                    <p>احذية</p>
+                    <h2><?php echo $row['Product'];?></h2>
+                    <p><?php $sql=$conn_link->query("SELECT Category From category Where CategoryID='$row[CategoryID]'")or die("error");
+                    $b=mysqli_fetch_array($sql);
+                    echo $b[0]; ?></p>
                     <!-- <img src="image/sss.jpg" class="strat"> -->
-                    <p class="price"> سعر 50.00 د</p>
+                    <p class="price"> سعر <?php echo $row['Price'];  ?> د</p>
                     <p><b>تخفيض : </b>  %5</p>
-                    <p><b>تاريخ الاضافة :</b>  1-1-2022</p>
+                    <p><b>تاريخ الاضافة :</b> <?php  echo date('Y-m-d',strtotime($row['AddedDate']));  ?></p>
                     <label>الكمية:   </label>
-                    <input type="text" value="3">
-                    <p><b>الوصف :  </b>الوصف الحداءالوصف الحداءالوصف الحداءالوصف الحداءالوصف الحداءالوصف الحداء</p>
+                    <input type="text" value="<?php  echo $row['Quantity']; ?>">
+                    <p><b>الوصف :  </b><?php echo $row['description'];?></p>
                     <button type="button" class="btn btn-default cart">اضاف الى سلة</button>
                 </div>
             </div>
