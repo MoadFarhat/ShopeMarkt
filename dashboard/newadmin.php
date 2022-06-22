@@ -121,5 +121,3 @@ include 'style/include/footer.php';
             imageName.innerText = inputImage.name;
         })
     </script>
-</body>
-</html>
