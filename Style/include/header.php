@@ -39,7 +39,7 @@
                         </div>
                 
                 <div class="search"  >
-                <form id="searchFormTop" action="" method="get" >
+                <form id="searchFormTop" action="search-category.php" method="post" >
                     <input type="text" class="searchbox" name="q" id="q" placeholder="بحث">
                     <span class="search-btn-wrap">
                         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
