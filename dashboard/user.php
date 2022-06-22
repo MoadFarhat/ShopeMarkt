@@ -54,29 +54,19 @@ require_once('../php/phpConect/mysql_connact.php');
                     <th><?php echo $f['Address'] ?></th>
                     <th><img width="35px" height="35px" src="../image/usersimage/<?php echo $f['Image']  ?>" alt=""></th>
                     <td class="as12"><div class="multi-button">
-                        <button class="updat" id="update">تعديل </button>
-                        <button class="delete" id="delete" >حدف</button>
-                        <?php
-                        if($f['Rank']==="مستخدم"){
-                        echo"<script>
-                        document.getElementById('update').style.display='none';
-                        document.getElementById('delete').style.display='block';
-                        </script>";
-                        }
-                         if ($f['Rank']==="مدير"){
-                            echo"<script>
-                            document.getElementById('update').style.display='block';
-                            document.getElementById('delete').style.display='none';
-                             </script>";
-                        }
-                      if ($f['Rank']==="موظف"){
-                            echo"<script>
-                            document.getElementById('update').style.display='block';
-                            document.getElementById('delete').style.display='block';
-                             </script>";
-                        }
+                        <?php   $chiper="AES-128-CTR";//خوارزمية التشفير
+                        $option=0;
+                        $encryption_vi='1234567890123456';
+                        $encryption_key='Moad';
+                        $encryption_id=openssl_encrypt($f[0],$chiper,$encryption_key,$option,$encryption_vi); 
                         
-                        ?>
+                        if( $f['Rank']!="مستخدم" and ($f['Rank']==="مدير" or $f['Rank']==="موظف" )){?>
+                      
+                        <a href ="updateadmin.php?d=<?php echo base64_encode( $encryption_id); ?>"><button class="updat" id="update">تعديل </a></button>
+                        <?php }  if( $f['Rank']!="مدير" and ($f['Rank']==="مستخدم" or $f['Rank']==="موظف")) {?>
+                            <a onclick="deleteUser(this);  return false;" href ="DeleteUser.php?d=<?php echo base64_encode( $encryption_id); ?>" >    <button class="delete" id="delete" >حدف</a></button>
+                        <?php }?>
+
                       </div>
                     </td>
                 </tr>
@@ -113,7 +103,15 @@ require_once('../php/phpConect/mysql_connact.php');
     })
     })
     
-    
+   
+function deleteUser(that){
+    var delete_func = confirm("هل تريد حذف  المستخدم");
+			if(delete_func==true){
+				window.location = anchor.attr("href");
+			}
+}
+
+
     
     </script>
   
