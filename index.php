@@ -1,7 +1,7 @@
 <?php
 include 'Style/include/header.php';
 require_once 'php/phpConect/mysql_connact.php';
-$chiper="AES-128-CTR";//خوارزمية التشفير
+$chiper="AES-128-CTR";       //خوارزمية التشفير
 $option=0;
 $encryption_vi='1234567890123456';
 $encryption_key='Moad';
@@ -10,15 +10,7 @@ $encryption_key='Moad';
 
 <!-- Start Product -->
 <div class="product" id="product">
-<?php  /* $c=$conn_link->query("SELECT Count(*) FROM category")or die();
-$co=mysqli_fetch_array($c);
-$count=mt_rand(0,$co[0]-2);
-$ratio=$count;
-$limitr=2;
-$sql=$conn_link->query("SELECT 	CategoryID  From category Limit ".$ratio.",".$limitr)or die("error");
-while($row=mysqli_fetch_array($sql)){
-echo $row[0]."<br>";
-$s=$row[0];*/
+<?php
 
 $sql4=$conn_link->query("SELECT DISTINCT( CategoryID) FROM product  ")or die("errror");
 
