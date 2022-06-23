@@ -67,9 +67,9 @@ $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_v
     <!-- Start Product -->
     <div class="product" id="product">
         <h2 class="main-title">ذات صلة</h2>
-        <?php $query=$conn_link->query("SELECT * FROM product WHERE Product like '%$row[Product]%' and CategoryID='$row[CategoryID]'")or die(); 
+        <?php $query=$conn_link->query("SELECT * FROM product WHERE Product like '%$row[Product]%' and ProductID !='$row[0]'")or die(); 
         if(mysqli_num_rows($query)==0){
-            $query=$conn_link->query("SELECT * FROM product WHERE  CategoryID='$row[CategoryID]'")or die();
+            $query=$conn_link->query("SELECT * FROM product WHERE  CategoryID='$row[CategoryID]' and ProductID !='$row[0]'")or die();
         }
         ?>
         <div class="container">
