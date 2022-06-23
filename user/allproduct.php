@@ -2,6 +2,11 @@
 include 'style/include/header.php';
 require_once("../php/phpConect/chickLogin.php");
 require_once('../php/phpConect/mysql_connact.php');
+$chiper="AES-128-CTR";       //خوارزمية التشفير
+$option=0;
+$encryption_vi='1234567890123456';
+$encryption_key='Moad';
+
 if(isset($_GET['m'])){
     $mfile=$_FILES['file']['name'];
     $mfiletemp=$_FILES['file']['tmp_name'];
@@ -118,7 +123,9 @@ if(isset($_GET['m'])){
                     </div>
                     
                         <div class="top">
-                            <a href="#"><h3><?php  echo $row['Product'];   ?></h3></a>  
+                            <a href="../product.php?r=<?php $encryption_id=openssl_encrypt($row[0],$chiper,$encryption_key,$option,$encryption_vi); 
+                        echo base64_encode($encryption_id) ;
+                    ?>"><h3><?php echo $row['Product'];?></h3></a>  
                             
                         </div>
                       
