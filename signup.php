@@ -26,27 +26,26 @@ echo"<script> alert('الرجاء إدخال رقم الهاتف بشكل صحي
 }
 else{
     $mfile=$_FILES['image']['name'];
-   
-   if(empty($mfile)){
+
+if(empty($mfile)){
         $mfile="image/user.jpg";
     } 
     $mfiletemp=$_FILES['image']['tmp_name'];
     $upload_file='image/usersimage/'.$mfile;
     move_uploaded_file($mfiletemp,$upload_file);
-   $rank="مستخدم";
-   $q=$conn_link->query("SELECT Password FROM user WHERE Password='$encryption_password'")or die();
-  
-   if(mysqli_num_rows($q)>0){
+    $rank="مستخدم";
+    $q=$conn_link->query("SELECT Password FROM user WHERE Password='$encryption_password'")or die();
+if(mysqli_num_rows($q)>0){
     echo"<script> alert('الرجاء إدخال كلمة مرور أخري');</script>";
-  }
-  else{
-   
+}
+else{
 
-   $sql="INSERT INTO user (Name,Email,Password,Address,phone,Rank,Image) VALUES('$name','$email','$encryption_password','$address','$phone','$rank','$mfile')";
-   $query=mysqli_query($conn_link,$sql)or die("error55");
-  $sql1=mysqli_query($conn_link,"SELECT UserID from user WHERE Password='$password' and Name='$name'")or die("error");
-  $fetch=mysqli_fetch_array($sql1);
-  $_SESSION['id_user']=$fetch[0];
+
+    $sql="INSERT INTO user (Name,Email,Password,Address,phone,Rank,Image) VALUES('$name','$email','$encryption_password','$address','$phone','$rank','$mfile')";
+    $query=mysqli_query($conn_link,$sql)or die("error55");
+    $sql1=mysqli_query($conn_link,"SELECT UserID from user WHERE Password='$password' and Name='$name'")or die("error");
+    $fetch=mysqli_fetch_array($sql1);
+    $_SESSION['id_user']=$fetch[0];
 header("location:user/index.php");
 }
 
@@ -62,15 +61,15 @@ header("location:user/index.php");
         <title>التسجيل</title>
         <link rel="stylesheet" href="Style/css/login_sinup.css">
         <link rel="stylesheet" href="Style/css/all.min.css">
-         
-         <link rel="preconnect" href="https://fonts.googleapis.com">
-         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-         
-         
-         <link rel="preconnect" href="https://fonts.googleapis.com">
-         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-         <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="overlay"></div>
@@ -81,7 +80,6 @@ header("location:user/index.php");
                 <div class="wrapper">
                     <a href="signup.php"><span>تسجيل  </span></a>
                     </div>
-              
             <div class="wrapper">
                     <a href="login.php"><span>تسجيل دخول </span></a>
                     </div>
@@ -123,26 +121,20 @@ header("location:user/index.php");
                 <input type="text" name="adress" placeholder="ادخل العنوان " required>
             </div>
             <div class="img1">
-              <div class="img">
+            <div class="img">
                 <label for="inputTag">
-                  ادخل الصورة 
-                  <!-- <br/> -->
-                  <!-- <i class="fa fa-2x fa-camera"></i> -->
-                  <input id="inputTag" name="image" type="file"/>
-                  <!-- <br/> -->
-                  <!-- <span id="imageName"></span> -->
+                ادخل الصورة 
+                <input id="inputTag" name="image" type="file"/>
                 </label>
-              </div>
-              </div>
+            </div>
+            </div>
             <button type="submit" name="login" class="login-button">التسجيل</button>
             </form>
-         </div>
+        </div>
         <h1 style="color:red"> <?php echo $_GET['e'];?></h1>
-      
             </div>
         </div>
-
-         <script>
+        <script>
             function myFunction(){
                 var x = document.getElementById("myInput");
                 var y = document.getElementById("hide1");

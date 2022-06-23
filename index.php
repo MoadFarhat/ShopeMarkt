@@ -8,12 +8,9 @@ $encryption_key='Moad';
 
 ?>
 
-    <!-- Start Product -->
-    
-
-    <div class="product" id="product">
-
- <?php  /* $c=$conn_link->query("SELECT Count(*) FROM category")or die();
+<!-- Start Product -->
+<div class="product" id="product">
+<?php  /* $c=$conn_link->query("SELECT Count(*) FROM category")or die();
 $co=mysqli_fetch_array($c);
 $count=mt_rand(0,$co[0]-2);
 $ratio=$count;
@@ -44,9 +41,9 @@ while($name=mysqli_fetch_array($q)){
                 <img src="image/image Proudect/<?php  echo $res[1];?>" alt="" />
                 
                 <div class="top">
-                  <a href="product.php?r=<?php $encryption_id=openssl_encrypt($c[0],$chiper,$encryption_key,$option,$encryption_vi); 
-                  echo base64_encode($encryption_id) ;
-                  ?>"><h3><?php echo $c['Product'];?></h3></a>  
+                    <a href="product.php?r=<?php $encryption_id=openssl_encrypt($c[0],$chiper,$encryption_key,$option,$encryption_vi); 
+                        echo base64_encode($encryption_id) ;
+                    ?>"><h3><?php echo $c['Product'];?></h3></a>  
                     
                 </div>
                 <div class="content">
@@ -61,255 +58,18 @@ while($name=mysqli_fetch_array($q)){
                     <a href=""><i class="fas fa-long-arrow-alt-left"></i></a>
                     
                 </div>
-               
             </div>
             <?php  
             }
         ?>
-          </div>
+        </div>
             <?php
             
 }
-           
+
 }
 ?>
-    
-    </div>
-  <?php /* <div class="container">
-          <div class="box">
-                <img src="image/car-02.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>تويوتا فورنر 2004</h3></a>  
-                    <p>5%</p>
-                </div>
-                <div class="content">
-                    <p> وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة </p>
-                </div>
-                <div class="Price">
-                    <h3>10,000</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <a href=""><i class="fas fa-long-arrow-alt-left"></i></a>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/car-03.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>تويوتا فورنر 2004</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة </p>
-                </div>
-                <div class="Price">
-                    <h3>10,000</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <a href=""><i class="fas fa-long-arrow-alt-left"></i></a>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/car-04.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>تويوتا فورنر 2004</h3></a>  
-                </div>
-                <div class="content">
-                    <p> وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة وصف السيارة </p>
-                </div>
-                <div class="Price">
-                    <h3>10,000</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <a href=""><i class="fas fa-long-arrow-alt-left"></i></a>
-                </div>
-            </div>
-        </div>
-                <a href="search-category.php" class="title"><h2 class="main-title">ملابس</h2></a>
-
-        <div class="container">
-            <div class="box">
-                <img src="image/jacket-01.jpg" alt="" />
-                
-                <div class="top">
-                  <a href="#"><h3>قميص</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس </p>
-                </div>
-                <div class="Price">
-                    <h3>70</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/jacket-02.jpg" alt="" />
-                
-                <div class="top">
-                  <a href="#"><h3>قميص</h3></a>  
-                  <p>30%</p>
-                    
-                </div>
-                <div class="content">
-                    <p> وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس </p>
-                </div>
-                <div class="Price">
-                    <h3>70</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/shirt-03.jpg" alt="" />
-                
-                <div class="top">
-                  <a href="#"><h3>قميص</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس </p>
-                </div>
-                <div class="Price">
-                    <h3>70</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/shirt-04.jpg" alt="" />
-                
-                <div class="top">
-                  <a href="#"><h3>قميص</h3></a>  
-                  <p>10%</p>
-
-                </div>
-                <div class="content">
-                    <p> وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس </p>
-                </div>
-                <div class="Price">
-                    <h3>70</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-        </div>
-        <a href="search-category.php" class="title"><h2 class="main-title">الاجهزة الكترونية</h2>                </a>
-
-        <div class="container">
-            <div class="box">
-                <img src="image/computer-01.jpg" alt="" />
-                
-                <div class="top">
-                  <a href="#"><h3>جهاز</h3></a> 
-                  <p>10%</p> 
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-02.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    <p>5%</p>
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-03.jpeg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-04.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-        
-        </div>*/?>
-    
-
+</div>
 <!-- End Product -->
 
 <?php

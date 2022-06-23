@@ -21,8 +21,6 @@ if(mysqli_num_rows($sql)==0){
 if(mysqli_num_rows($sql)>0)
 {
     while($name=mysqli_fetch_array($sql)){
-
-   
 ?>
 
     <!-- Start Product -->
@@ -32,10 +30,8 @@ if(mysqli_num_rows($sql)>0)
         if(mysqli_num_rows($query)==0)
         {
             echo"<p>لايوجد منتجات في هذا القسم</p>";
-
         }
         else{
-          
         ?>
         <div class="container">
             <?php  while($row=mysqli_fetch_array($query)){
@@ -47,8 +43,8 @@ if(mysqli_num_rows($sql)>0)
                 
                 <div class="top">
                 <a href="product.php?r=<?php $encryption_id=openssl_encrypt($row[0],$chiper,$encryption_key,$option,$encryption_vi); 
-                  echo base64_encode($encryption_id) ;
-                  ?>"><h3><?php echo $row['Product'];?></h3></a>  
+                echo base64_encode($encryption_id) ;
+                ?>"><h3><?php echo $row['Product'];?></h3></a>  
                     
                 </div>
                 <div class="content">
@@ -76,273 +72,6 @@ else{
     echo "<p>لا يوجد منتاجات في هذا التصنيف</p>";
 }
 ?>
-          <?php /*  <div class="box">
-                <img src="image/computer-04.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-01.jpg" alt="" />
-                
-                <div class="top">
-                  <a href="#"><h3>جهاز</h3></a> 
-                  <p>10%</p> 
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-02.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    <p>5%</p>
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-03.jpeg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-04.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-01.jpg" alt="" />
-                
-                <div class="top">
-                  <a href="#"><h3>جهاز</h3></a> 
-                  <p>10%</p> 
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-02.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    <p>5%</p>
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-03.jpeg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-04.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-01.jpg" alt="" />
-                
-                <div class="top">
-                  <a href="#"><h3>جهاز</h3></a> 
-                  <p>10%</p> 
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-02.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    <p>5%</p>
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-03.jpeg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="image/computer-04.jpg" alt="" />
-                
-                <div class="top">
-                    <a href="#"><h3>جهاز</h3></a>  
-                    
-                </div>
-                <div class="content">
-                    <p> وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز وصف جهاز </p>
-                </div>
-                <div class="Price">
-                    <h3>450</h3>
-                    <p>دينار</p>
-                </div>
-                <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
-                    
-                </div>
-            </div>
-        </div>*/?>
     </div>
     </div>
     <!-- End Product -->
