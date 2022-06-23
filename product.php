@@ -67,27 +67,45 @@ $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_v
     <!-- Start Product -->
     <div class="product" id="product">
         <h2 class="main-title">ذات صلة</h2>
+        <?php $query=$conn_link->query("SELECT * FROM product WHERE Product like '%$row[Product]%' and CategoryID='$row[CategoryID]'")or die(); 
+        if(mysqli_num_rows($query)==0){
+            $query=$conn_link->query("SELECT * FROM product WHERE  CategoryID='$row[CategoryID]'")or die();
+        }
+        ?>
         <div class="container">
+            <?php
+        while($c=mysqli_fetch_array($query) ){
+                $data=$c['Image'] ;
+                $res=explode(" ",$data);
+                $count=count($res)-1;?>
             <div class="box">
-                <img src="image/jacket-01.jpg" alt="" />
+                <img src="image/image Proudect/<?php  echo $res[1];?>" alt="" />
                 
                 <div class="top">
-                  <a href="#"><h3>قميص</h3></a>  
+                  <a href="product.php?r=<?php $encryption_id=openssl_encrypt($c[0],$chiper,$encryption_key,$option,$encryption_vi); 
+                  echo base64_encode($encryption_id) ;
+                  ?>"><h3><?php echo $c['Product'];?></h3></a>  
                     
                 </div>
                 <div class="content">
-                    <p> وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس وصف ملابس </p>
+                    <p> <?php  echo $c['description'];?> </p>
                 </div>
                 <div class="Price">
-                    <h3>70</h3>
+                    <h3><?php echo $c['Price'];?></h3>
                     <p>دينار</p>
                 </div>
                 <div class="info">
                     <a href="">أضف إلى السلة</a>
-                    <i class="fas fa-long-arrow-alt-left"></i>
+                    <a href=""><i class="fas fa-long-arrow-alt-left"></i></a>
                     
                 </div>
+               
             </div>
+            <?php  
+            }
+        ?>
+          </div>
+          <?php /*
             <div class="box">
                 <img src="image/jacket-02.jpg" alt="" />
                 
@@ -150,7 +168,7 @@ $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_v
                 </div>
             </div>
         </div>
-        </div>
+        </div>*/ ?>
     </div>
 
     <!-- End Product -->
