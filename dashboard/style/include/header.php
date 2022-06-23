@@ -61,7 +61,7 @@
 <div class="control">
     <div class="container">
         <div class="wrapper">
-            <a href="../user/main.php"><i class="fas fa-home"></i>
+            <a href="index.php"><i class="fas fa-home"></i>
                 <span>لوحة تحكم </span></a>
         </div>
         
@@ -71,7 +71,7 @@
         </div>
         <div class="wrapper">
             <a href="newadmin.php"><i class="fas fa-user-friends"></i>
-                <span>اضافة مدير</span></a>
+                <span>اضافة موظف</span></a>
         </div>
         <div class="wrapper">
             <a href="user.php"><i class="fas fa-user-friends"></i>

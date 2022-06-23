@@ -1,6 +1,6 @@
 <?php
-include 'Style/include/header.php';
-require_once 'php/phpConect/mysql_connact.php';
+include 'style/include/header.php';
+require_once '../php/phpConect/mysql_connact.php';
 $chiper="AES-128-CTR";//خوارزمية التشفير
 $option=0;
 $encryption_vi='1234567890123456';
@@ -62,7 +62,6 @@ if(mysqli_num_rows($sql)>0)
             </div>
             <?php }}}
 }
-
 ?>
 </div>
     </div>
@@ -76,5 +75,5 @@ else{
     </div>
     <!-- End Product -->
 <?php
-    include 'Style/include/footer.php';
+    include 'style/include/footer.php';
 ?>

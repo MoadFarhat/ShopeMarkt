@@ -1,32 +1,32 @@
- <!-- Start Category -->
+<!-- Start Category -->
 <div class="category" id="category">
             <h2 class="main-title">الاقسام</h2>
             <div class="container">
                 <div class="box">
-                <a href="../search-category.php"><i class="fa-solid fa-car fa-4x"></i></a>
+                <a href="search-category.php?g=السيارات"><i class="fa-solid fa-car fa-4x"></i></a>
                 <!-- <h3>سيارات</h3> -->
                     <div class="info">
-                        <a href="search-category.php">سيارات</a>
+                        <a href="search-category.php?g=السيارات">سيارات</a>
                     </div>
                 </div>
                 <div class="box">
-                <a href="../search-category.php"><i class="fa-solid fa-shirt fa-4x"></i></a>
+                <a href="search-category.php?g=ملابس"><i class="fa-solid fa-shirt fa-4x"></i></a>
                 <!-- <h3> ملابس</h3> -->
                     <div class="info">
-                        <a href="search-category.php">ملابس</a>
+                        <a href="search-category.php?g=ملابس">ملابس</a>
                     </div>
                 </div>
                 <div class="box">
-                <a href="../search-category.php"><i class="fa-solid fa-tv fa-4x"></i> </a>
+                <a href="search-category.php?g=الاجهزة الكترونية"><i class="fa-solid fa-tv fa-4x"></i> </a>
                 <!-- <h3>الاجهزة الكترونية</h3> -->
                     <div class="info">
-                        <a href="search-category.php">الاجهزة الكترونية</a>
+                        <a href="search-category.php?g=الاجهزة الكترونية">الاجهزة الكترونية</a>
                     </div>
                 </div>
                 <div class="box">
-                <a href="../search-category.php"><i class="fa-solid fa-book fa-4x"></i></a>
+                <a href="search-category.php?g=كتب"><i class="fa-solid fa-book fa-4x"></i></a>
                     <div class="info">
-                        <a href="search-category.php">كتب</a>
+                        <a href="search-category.php?g=كتب">كتب</a>
                     </div>
                 </div>
             </div>
