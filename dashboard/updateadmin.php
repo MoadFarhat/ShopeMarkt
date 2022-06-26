@@ -47,7 +47,7 @@ $encryption_password=openssl_encrypt($password,$chiper,$encryption_key,$option,$
 ?>
 <!-- Start Admin -->
 <div class="admin">
-    <h2 class="main-title">اضافة موظف</h2>
+    <h2 class="main-title">تعديل موظف</h2>
 
 <div class="box">
     <?php   $q=$conn_link->query("SELECT * FROM user WHERE UserID='$id'")or die("eror select");

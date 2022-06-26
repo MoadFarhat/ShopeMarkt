@@ -123,7 +123,7 @@ if(isset($_GET['m'])){
                     </div>
                     
                         <div class="top">
-                            <a href="../product.php?r=<?php $encryption_id=openssl_encrypt($row[0],$chiper,$encryption_key,$option,$encryption_vi); 
+                            <a href="product.php?r=<?php $encryption_id=openssl_encrypt($row[0],$chiper,$encryption_key,$option,$encryption_vi); 
                         echo base64_encode($encryption_id) ;
                     ?>"><h3><?php echo $row['Product'];?></h3></a>  
                             

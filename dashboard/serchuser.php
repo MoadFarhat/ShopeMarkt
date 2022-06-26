@@ -4,6 +4,7 @@ if(isset($_POST['input'])){
     $input=$_POST['input'];
     
     $query=$conn_link->query("SELECT * FROM user WHERE Name like '%$input%'")or die("error serch");
+    $x=1;
     if(mysqli_num_rows($query)>0){ ?>
   <div class="table-wrapper"  id="serch" >
   <table class="fl-table" id="serch">
@@ -25,7 +26,7 @@ if(isset($_POST['input'])){
       while($row=mysqli_fetch_array($query)){ ?>
          
       <tr>
-          <th>1</th>
+          <th><?php echo $x;?></th>
           <th><?php echo $row[1];?></th>
           <th><?php echo $row[2];?></th>
           <th><?php echo $row['Rank'];?></th>
@@ -38,7 +39,7 @@ if(isset($_POST['input'])){
             </div>
           </td>
       </tr>
-      <?php }?>
+      <?php $x++; }?>
       </tbody>
       </tabel
    <?php }
