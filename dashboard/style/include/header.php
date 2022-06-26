@@ -38,12 +38,7 @@
                 <a href="../user/logout.php"><span>تسجيل خروج  </span></a>
             </div>
         </div>
-        
-            
-           
-        
                 <h1>Shope Markt</h1>
-           
             <a class="logo" href="../index.php">
                 <i class="fa-solid fa-shop"></i>
             </a>

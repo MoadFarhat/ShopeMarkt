@@ -62,7 +62,6 @@ if(mysqli_num_rows($sql)>0)
             </div>
             <?php }}}
 }
-
 ?>
 </div>
     </div>
