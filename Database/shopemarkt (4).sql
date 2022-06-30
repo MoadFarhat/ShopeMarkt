@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2022 at 09:11 AM
+-- Generation Time: Jun 30, 2022 at 11:28 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -89,9 +89,22 @@ CREATE TABLE `history` (
 
 CREATE TABLE `order` (
   `OrderID` int(11) NOT NULL,
-  `Order` varchar(50) NOT NULL,
-  `UserID` int(11) NOT NULL
+  `proudect_id` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `date_order` timestamp NOT NULL DEFAULT current_timestamp(),
+  `cont_item` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`OrderID`, `proudect_id`, `UserID`, `date_order`, `cont_item`) VALUES
+(2, 1, 6, '2022-06-27 08:09:06', 1),
+(3, 3, 6, '2022-06-27 08:58:19', 0),
+(6, 2, 5, '2022-06-30 08:56:28', 0),
+(7, 2, 5, '2022-06-30 08:56:44', 0),
+(8, 3, 6, '2022-06-30 11:18:31', 0);
 
 -- --------------------------------------------------------
 
@@ -135,7 +148,8 @@ INSERT INTO `product` (`ProductID`, `Product`, `Price`, `AddedDate`, `Quantity`,
 (2, 'تيوتا فور رنر', 2000000, '0000-00-00 00:00:00', 1, 'السيارة حديثة وبها الكثير من المزايا', 0, ' car-01.jpg car-02.jpg car-03.jpg car-04.jpg ', 2, 6),
 (3, 'قميص', 100, '0000-00-00 00:00:00', 1, 'gbbbg', 0, ' shirt-03.jpg shirt-04.jpg ', 3, 1),
 (6, 'قميص', 100, '0000-00-00 00:00:00', 1, 'dssdas', 0, ' jacket-01.jpg jacket-02.jpg shirt-03.jpg ', 3, 6),
-(7, 'تيوتا', 100222, '2022-06-22 17:09:58', 1, 'إستراد حيث و جمرك', 0, ' car-03.jpg car-04.jpg ', 2, 6);
+(7, 'تيوتا', 100222, '2022-06-22 17:09:58', 1, 'إستراد حيث و جمرك', 0, ' car-03.jpg car-04.jpg ', 2, 6),
+(8, 'قميص', 100, '2022-06-23 10:15:25', 5, 'قميص قميص', 0, ' jacket-02.jpg ', 3, 6);
 
 -- --------------------------------------------------------
 
@@ -150,7 +164,7 @@ CREATE TABLE `user` (
   `Password` varchar(50) NOT NULL,
   `Address` varchar(50) NOT NULL,
   `phone` varchar(12) NOT NULL,
-  `Rank` varchar(50) NOT NULL,
+  `Rank` int(11) NOT NULL,
   `Image` varchar(50) NOT NULL,
   `PackageID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -160,11 +174,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UserID`, `Name`, `Email`, `Password`, `Address`, `phone`, `Rank`, `Image`, `PackageID`) VALUES
-(1, 'محمد علي', 'mohamed1@gmail.com', 'dTRg1xBNPwPXFVQRHO8gcA==', 'زليتن', '0922043696', 'مستخدم', 'user-01.jpg', NULL),
-(5, 'معاذ فرحات', 'moad@gmail.com', 'dTRg0BNeSxbAJixV', 'زليتن', '0910051896', 'مدير', 'computer-02.jpg', NULL),
-(6, 'محمد الشريدي', 'mohamed24@gmail.com', 'dTcQzwRgT1I=', 'ليبيا - زليتن', '0943789901', 'مستخدم', 'user.jpg', NULL),
-(7, 'معاذ فرحات', 'hgbgt@tbrf', 'TjsX0xN3bVI=', 'aaaaaa', '0910086070', 'مستخدم', 'user.jpg', NULL),
-(11, 'احمد', 'ahmed@aa', 'TjQf0BBLM1I=', 'زليتن', '0947878887', 'موظف', 'user.jpg', NULL);
+(1, 'محمد علي', 'mohamed1@gmail.com', 'dTRg1xBNPwPXFVQRHO8gcA==', 'زليتن', '0922043696', 3, 'user-01.jpg', NULL),
+(5, 'معاذ فرحات', 'moad@gmail.com', 'dTRg0BNeSxbAJixV', 'زليتن', '0910051896', 12, 'user-01.jpg', NULL),
+(6, 'محمد فرج الشريدي', 'mohamed24@gmail.com', 'dTcQzwRgT1I=', 'ليبيا - زليتن', '0943789901', 3, '21372076.jpg', NULL),
+(7, 'معاذ فرحات', 'hgbgt@tbrf', 'TjsX0xN3bVI=', 'aaaaaa', '0910086070', 3, 'user.jpg', NULL),
+(11, 'احمد', 'ahmed@aa', 'TjQf0BBLM1I=', 'زليتن', '0947878887', 2, 'user.jpg', NULL),
+(13, 'أحمد باوى', 'ahmedbawa2000@gmail.com', 'WjcQwgdeW1I=', 'الجفرة', '0919586884', 1, 'user.jpg', NULL);
 
 --
 -- Indexes for dumped tables
@@ -202,7 +217,8 @@ ALTER TABLE `history`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`OrderID`),
-  ADD KEY `users` (`UserID`);
+  ADD KEY `users` (`UserID`),
+  ADD KEY `proudectcons` (`proudect_id`);
 
 --
 -- Indexes for table `package`
@@ -233,7 +249,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `companie`
@@ -257,7 +273,7 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `package`
@@ -269,13 +285,13 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
@@ -298,7 +314,8 @@ ALTER TABLE `history`
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `users` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `proudectcons` FOREIGN KEY (`proudect_id`) REFERENCES `product` (`ProductID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `userser` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product`
