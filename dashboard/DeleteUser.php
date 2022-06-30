@@ -8,8 +8,15 @@ $encryption_vi='1234567890123456';
 $encryption_key='Moad';
 
 $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_vi); 
+$sql=$conn_link->query("SELECT Image FROM user WHERE UserID=$id")or die("error");
+$nameimage=mysqli_fetch_array($sql);
+unlink('../image/usersimage/'.$nameimage['0']);
+
 $query=$conn_link->query("DELETE FROM user WHERE UserID=$id")or die("error");
+
 header("location:user.php");
+
+
 }
 
 

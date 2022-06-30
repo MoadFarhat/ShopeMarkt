@@ -1,7 +1,7 @@
 <?php
 require_once("../php/phpConect/chickLogin.php");
 require_once('../php/phpConect/mysql_connact.php');
-if($_SESSION['rank']!="مدير"){
+if($_SESSION['rank']!=1 and $_SESSION['rank']!=12 and $_SESSION['rank']!=13 and $_SESSION['rank']!=123){
 header("location:../login.php?e=هذه الصفحة خاصة بالمدير");
 }
 ?>

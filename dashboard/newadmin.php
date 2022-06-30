@@ -27,7 +27,7 @@ $encryption_password=openssl_encrypt($password,$chiper,$encryption_key,$option,$
       $mfiletemp=$_FILES['image']['tmp_name'];
     $upload_file='../image/usersimage/'.$mfile;
     move_uploaded_file($mfiletemp,$upload_file);
-      $rank="موظف";
+      $rank=2;
    $sql="INSERT INTO user (Name,Email,Password,Address,phone,Rank,Image) VALUES('$name','$email','$encryption_password','$addres','$phone','$rank','$mfile')";
    $query=mysqli_query($conn_link,$sql)or die("error55");
    header("location:user.php");
@@ -54,7 +54,7 @@ $encryption_password=openssl_encrypt($password,$chiper,$encryption_key,$option,$
               </div>
               <div class="page">
                 <label class="field field_v1">
-                  <input class="field__input" name="password"placeholder="ادخل كلمة السر" required>
+                  <input class="field__input" name="password"placeholder="ادخل كلمة السر" required >
                   <span class="field__label-wrap">
                     <span class="field__label">كلمة السر</span>
                   </span>

@@ -16,7 +16,7 @@ $password=base64_encode(mysqli_real_escape_string($conn_link,$_POST['password'])
 $email=mysqli_real_escape_string($conn_link,$_POST['email']);
 $phone=mysqli_real_escape_string($conn_link,"".$_POST['phone']);
 $addres=mysqli_real_escape_string($conn_link,$_POST['addres']);
-$rank=$_POST['term1']." ".$_POST['term2']." ".$_POST['term3'];
+$rank=$_POST['term1'].$_POST['term2'].$_POST['term3'];
 $mfile=$_FILES['image']['name'];
 if(empty($name)or empty($password)or empty($email) or empty($phone)  or empty($addres) or  empty($rank)  ){
   echo "<script> alert('الرجاء إدخال جميع الحقول')</script>";
@@ -99,9 +99,9 @@ $row=mysqli_fetch_array($q); ?>
               </div>
               <div class="page">
               <label class="field field_v1">
-              <input type="checkbox" name="term1" value="مدير" style="margin-top:2rem"><b style="margin-top:2rem;margin-right:10px">مدير<b>
-							<input type="checkbox" name="term2" value="موظف"style="margin-top:2rem"><b style="margin-top:2rem;margin-right:10px">موظف</b>
-							<input type="checkbox" name="term3" value="مستخدم"style="margin-top:2rem" ><b style="margin-top:2rem;margin-right:10px">مستخدم</b>
+              <input type="checkbox" name="term1" value="1" style="margin-top:2rem"><b style="margin-top:2rem;margin-right:10px">مدير<b>
+							<input type="checkbox" name="term2" value="2"style="margin-top:2rem"><b style="margin-top:2rem;margin-right:10px">موظف</b>
+							<input type="checkbox" name="term3" value="3"style="margin-top:2rem" ><b style="margin-top:2rem;margin-right:10px">مستخدم</b>
               <span class="field__label-wrap">
                     <span class="field__label">الصلاحية</span>
                   </span>
@@ -113,7 +113,7 @@ $row=mysqli_fetch_array($q); ?>
                   ادخل الصورة 
                   <!-- <br/> -->
                   <!-- <i class="fa fa-2x fa-camera"></i> -->
-                  <input id="inputTag" type="file" name="image" required/>
+                  <input id="inputTag" type="file" name="image"  value="<?php echo $row['Image']; ?>"/>
                   <!-- <br/> -->
                   <!-- <span id="imageName"></span> -->
                 </label>

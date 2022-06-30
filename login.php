@@ -36,10 +36,10 @@ if(mysqli_num_rows($com)>0){
     $_SESSION['user_id']=$f[0];
     $_SESSION['rank']=$f['Rank'];
 
-if( $_SESSION['rank']==="مستخدم")
+if( $_SESSION['rank']==3)
 header("location:user/index.php");
 
-    else if( $_SESSION['rank']==="مدير")
+    else if( $_SESSION['rank']==1 or $_SESSION['rank']==12 or $_SESSION['rank']==13 or $_SESSION['rank']==123)
     header("location:dashboard/index.php");
     }
 else{

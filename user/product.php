@@ -7,7 +7,18 @@ $option=0;
 $encryption_vi='1234567890123456';
 $encryption_key='Moad';
 $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_vi);
-
+if(isset($_POST['addorder'])){
+    $pid=$_POST['poudect'];
+    $useId= $_POST['user'];
+    if( empty($pid)or empty($useId)){
+     echo'<script> alert("error found"); </script>';
+    }
+    else{
+          $query=$conn_link->query("INSERT INTO `order`(`proudect_id`, `UserID`, `date_order`) VALUES ($pid,$useId,Now())")or die("error");
+           header("Location:cart.php");
+      
+    }
+}
 ?>
 <head>
 <!-- Main Shope Markt Css File -->
@@ -60,10 +71,15 @@ $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_v
                     <p class="price"> سعر <?php echo $row['Price'];  ?> د</p>
                     <p><b>تخفيض : </b>  %5</p>
                     <p><b>تاريخ الاضافة :</b> <?php  echo date('Y-m-d',strtotime($row['AddedDate']));  ?></p>
+                    <form method="post" action="" onsubmit="return check();">
                     <label>الكمية:   </label>
-                    <input type="text" value="<?php  echo $row['Quantity']; ?>">
+                    <input type="number" id="m1" value="1" pattern="[1-9]$">
                     <p><b>الوصف :  </b><?php echo $row['description'];?></p>
-                    <button type="button" class="btn btn-default cart">اضاف الى سلة</button>
+                   
+                        <input type="text" name="poudect" value="<?php echo $row[0];?>" hidden>
+                        <input type="text" name="user" value="<?php echo $_SESSION['user_id'];?>" hidden>
+                    <button type="submit" name="addorder" class="btn btn-default cart">اضاف الى سلة</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -100,8 +116,8 @@ $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_v
                     <p>دينار</p>
                 </div>
                 <div class="info">
-                    <a href="">أضف إلى السلة</a>
-                    <a href=""><i class="fas fa-long-arrow-alt-left"></i></a>
+                    <a href="cart.php?p=<?php echo $encryption_id;?>">أضف إلى السلة</a>
+                    <a href="cart.php?p=<?php echo $encryption_id;?>"><i class="fas fa-long-arrow-alt-left"></i></a>
                     
                 </div>
                
@@ -177,7 +193,19 @@ $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_v
     </div>
 
     <!-- End Product -->
-
+<script type="text/javascript">
+    function check(){
+    let number=document.getElementById('m1').value;
+    if(number>0){
+     
+        return true;
+    }
+    else{
+        alert("الرجاء إدخال الكمية بشكل صحيح");
+        return false;
+    }
+}
+</script>
 <?php
 include 'style/include/footer.php';
 ?>

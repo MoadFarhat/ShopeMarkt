@@ -12,7 +12,7 @@ $encryption_key='Moad';
 <div class="product" id="product">
 <?php 
 
-$sql4=$conn_link->query("SELECT DISTINCT( CategoryID) FROM product  ")or die("errror");
+$sql4=$conn_link->query("SELECT DISTINCT( CategoryID) FROM product WHERE user_id !=' $_SESSION[user_id]' ")or die("errror");
 
 while($f=mysqli_fetch_array($sql4)){
 
@@ -24,13 +24,13 @@ while($name=mysqli_fetch_array($q)){
     
         <a href="search-category.php?g=<?php  echo $name[0]?>" class="title"><h2 class="main-title"><?php echo $name[0]?></h2></a>
         <div class="container">
-            <?php $query=$conn_link->query("SELECT * FROM product WHERE CategoryID='$f[0]' ")or die("erroe");
+            <?php $query=$conn_link->query("SELECT * FROM product WHERE CategoryID='$f[0]' and user_id !=' $_SESSION[user_id]' ")or die("erroe");
             while($c=mysqli_fetch_array($query) ){
                 $data=$c['Image'] ;
                 $res=explode(" ",$data);
                 $count=count($res)-1;?>
             <div class="box">
-                <img src="image/image Proudect/<?php  echo $res[1];?>" alt="" />
+                <img src="../image/image Proudect/<?php  echo $res[1];?>" alt="" />
                 
                 <div class="top">
                     <a href="product.php?r=<?php $encryption_id=openssl_encrypt($c[0],$chiper,$encryption_key,$option,$encryption_vi); 

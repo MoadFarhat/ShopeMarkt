@@ -48,7 +48,21 @@ require_once('../php/phpConect/mysql_connact.php');
                     <th><?php echo $x ?></th>
                     <th><?php echo $f[1] ?></th>
                     <th><?php echo $f[2] ?></th>
-                    <th><?php echo $f['Rank'] ?></th>
+                    <th><?php if($f['Rank']==1)
+                    echo "مدير";
+                   if($f['Rank']==2)
+                    echo "موظف";
+                    if($f['Rank']==3)
+                    echo "مستخدم";
+                    if($f['Rank']==13)
+                    echo "مدير مستخدم";
+                    if($f['Rank']==12)
+                    echo "مدير موظف";
+                    if($f['Rank']==23)
+                    echo "موظف مستخدم";
+                    if($f['Rank']==123)
+                    echo "مدير موظف مستخدم";
+                    ?></th>
                     <th><?php echo $f['Email'] ?></th>
                     <th><?php echo $f['phone'] ?></th>
                     <th><?php echo $f['Address'] ?></th>
@@ -60,10 +74,10 @@ require_once('../php/phpConect/mysql_connact.php');
                         $encryption_key='Moad';
                         $encryption_id=openssl_encrypt($f[0],$chiper,$encryption_key,$option,$encryption_vi); 
                         
-                        if( $f['Rank']!="مستخدم" and ($f['Rank']==="مدير" or $f['Rank']==="موظف" )){?>
+                        if( $f['Rank']!=3 and ($f['Rank']==1 or $f['Rank']==2 or $f['Rank']==12  or $f['Rank']==23  or $f['Rank']==13)){?>
                       
                         <a href ="updateadmin.php?d=<?php echo base64_encode( $encryption_id); ?>"><button class="updat" id="update">تعديل </a></button>
-                        <?php }  if( $f['Rank']!="مدير" and ($f['Rank']==="مستخدم" or $f['Rank']==="موظف")) {?>
+                        <?php }  if( $f['Rank']!=1 and ($f['Rank']==3 or $f['Rank']==2)) {?>
                             <a onclick="deleteUser(this);  return false;" href ="DeleteUser.php?d=<?php echo base64_encode( $encryption_id); ?>" >    <button class="delete" id="delete" >حدف</a></button>
                         <?php }?>
 

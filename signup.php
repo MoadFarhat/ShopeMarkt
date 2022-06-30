@@ -28,12 +28,12 @@ else{
     $mfile=$_FILES['image']['name'];
 
 if(empty($mfile)){
-        $mfile="image/user.jpg";
+        $mfile="user.jpg";
     } 
     $mfiletemp=$_FILES['image']['tmp_name'];
     $upload_file='image/usersimage/'.$mfile;
     move_uploaded_file($mfiletemp,$upload_file);
-    $rank="مستخدم";
+    $rank=3;
     $q=$conn_link->query("SELECT Password FROM user WHERE Password='$encryption_password'")or die();
 if(mysqli_num_rows($q)>0){
     echo"<script> alert('الرجاء إدخال كلمة مرور أخري');</script>";
