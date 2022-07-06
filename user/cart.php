@@ -2,11 +2,13 @@
 include 'style/include/header.php';
 require_once '../php/phpConect/mysql_connact.php';
 $sum=0;
+
+
 ?>
 <head>
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  	<link rel="stylesheet" type="text/css" href="style/css/ct.css"> 
+	<link rel="stylesheet" type="text/css" href="style/css/ct.css"> 
 </head>
 <body>
 
@@ -18,7 +20,7 @@ $sum=0;
 					<div class="col-md-3 order-last Order">
 					<?php $query=$conn_link->query("SELECT * FROM `order` WHERE `UserID`=$_SESSION[user_id]")or die("error");
 								if(mysqli_num_rows($query)==0){
-                                         echo"<p>لا يوجد لديك منتجات</p>";
+                                            echo"<p>لا يوجد لديك منتجات</p>";
 								}
 								else{
 									while($row=mysqli_fetch_array($query)){
@@ -39,7 +41,7 @@ $sum=0;
 												<p class="num-product mb-0"> منتجات </p>
 											</div>
 											<div class="col-md-6 col-6 text-center no-padding">
-												<p class="data-subtitle font-weight-bold mb-0"><?php
+												<p class="data-subtitle font-weight-bold mb-0"  ><?php
 												echo $sum;
 												?> دينار</p>
 											</div>
@@ -80,7 +82,7 @@ $sum=0;
 								<?php
 								$query=$conn_link->query("SELECT * FROM `order` WHERE `UserID`=$_SESSION[user_id]")or die("error");
 								if(mysqli_num_rows($query)==0){
-                                         echo"<p>لا يوجد لديك منتجات</p>";
+                                            echo"<p>لا يوجد لديك منتجات</p>";
 								}
 								else{
 									while($row=mysqli_fetch_array($query)){
@@ -89,6 +91,12 @@ $sum=0;
 										$data=$q['Image'] ;
 										$res=explode(" ",$data);
 										$count=count($res)-1;
+										$chiper="AES-128-CTR";//خوارزمية التشفير
+        $option=0;
+        $encryption_vi='1234567890123456';
+        $encryption_key='Moad';
+        $encryption_id=openssl_encrypt($row[0],$chiper,$encryption_key,$option,$encryption_vi); 
+	
 										?>
 								
 								<div class="card">
@@ -101,22 +109,29 @@ $sum=0;
 												<div class="row">
 													<div class="col-md-9 col-9">
 														<p class="cart-product mb-0 text-right"><?php echo $q['Product']; ?></p>
-														<p class="cart-price mb-0  text-left"><?php echo $q['Price']; ?> دينار</p>
+														<p class="cart-price mb-0  text-left itotal" ><?php echo $q['Price']; ?> دينار</p>
+														<input type="text" class="iprice" value="<?php echo $q['Price']; ?>" hidden />
 														<!-- <p class="cart-items">2 Left</p> -->
 													</div>
 													<div class="col-md-3 col-3 mt-3">
-														<i class="fas fa-plus-circle plus-icon"></i>
-														<span class="num-items pr-2 pl-2"> <?php echo $row['cont_item']; ?></span>
-														<i class="fas fa-minus-circle minus-icon"></i>
+													<button class="add" style="border: none;"><i class="fas fa-plus-circle plus-icon"></i></button>
+													<form method="post" action="" onsubmit="return check();">
+														<input style="width:100px;border:none"  type="number" class="num-items pr-2 pl-2 iquantity reult" value="<?php echo $row['cont_item']; ?>"/>
+														<input type="text"  class="io"value="<?php echo $q['Quantity']; ?>" hidden>
+														
+															
+														
+													</form>
+														<button class="mines" style="border: none;"><i class="fas fa-minus-circle minus-icon"></i></button>
 													</div>
 													<br>
-													<a href="#"class="col-md-12 col-12 delet">
+													<a href="deletorder.php?d= <?php echo base64_encode($encryption_id);?>"class="col-md-12 col-12 delet">
                                                         
                                                             <i class="fas fa-trash trash-icon"></i>
                                                             <span class="icons-items pl-1"> حدف </span>
                                                     </a>
 													<br>
-													<a href="#"class="col-md-12 col-12 delet">
+													<a onclick="return check();" href="pay.php?d=<?php echo base64_encode($encryption_id);?>"class="col-md-12 col-12 delet">
                                                         
 													<i class="fa-solid fa-money-bill-1"></i>
                                                             <span class="icons-items pl-1"> شراء </span>
@@ -131,113 +146,6 @@ $sum=0;
 								<br>
 							</div>
 						</div>
-					<?php /*	
-						<div class="row">
-							<div class="col-md-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="centered-row mb-0">
-											<div class="col-md-4 mb-1">
-												<img src="../image/car-02.jpg" class="cart-image" />
-											</div>
-											<div class="col-md-8">
-												<div class="row">
-													<div class="col-md-9 col-9">
-														<p class="cart-product mb-0 text-right">اسم المنتج</p>
-														<p class="cart-price mb-0  text-left">200 دينار</p>
-														<!-- <p class="cart-items">2 Left</p> -->
-													</div>
-													<div class="col-md-3 col-3 mt-3">
-														<i class="fas fa-plus-circle plus-icon"></i>
-														<span class="num-items pr-2 pl-2"> 1 </span>
-														<i class="fas fa-minus-circle minus-icon"></i>
-													</div>
-													<br>
-													<a href="#"class="col-md-12 col-12 delet">
-                                                        
-                                                            <i class="fas fa-trash trash-icon"></i>
-                                                            <span class="icons-items pl-1"> حدف </span>
-                                                    </a>
-													
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<br>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="centered-row mb-0">
-											<div class="col-md-4 mb-1">
-												<img src="../image/car-02.jpg" class="cart-image" />
-											</div>
-											<div class="col-md-8">
-												<div class="row">
-													<div class="col-md-9 col-9">
-														<p class="cart-product mb-0 text-right">اسم المنتج</p>
-														<p class="cart-price mb-0  text-left">200 دينار</p>
-														<!-- <p class="cart-items">2 Left</p> -->
-													</div>
-													<div class="col-md-3 col-3 mt-3">
-														<i class="fas fa-plus-circle plus-icon"></i>
-														<span class="num-items pr-2 pl-2"> 1 </span>
-														<i class="fas fa-minus-circle minus-icon"></i>
-													</div>
-													<br>
-													<a href="#"class="col-md-12 col-12 delet">
-                                                        
-                                                            <i class="fas fa-trash trash-icon"></i>
-                                                            <span class="icons-items pl-1"> حدف </span>
-                                                    </a>
-													
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<br>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="card">
-									<div class="card-body">
-										<div class="centered-row mb-0">
-											<div class="col-md-4 mb-1">
-												<img src="../image/car-02.jpg" class="cart-image" />
-											</div>
-											<div class="col-md-8">
-												<div class="row">
-													<div class="col-md-9 col-9">
-														<p class="cart-product mb-0 text-right">اسم المنتج</p>
-														<p class="cart-price mb-0  text-left">200 دينار</p>
-														<!-- <p class="cart-items">2 Left</p> -->
-													</div>
-													<div class="col-md-3 col-3 mt-3">
-														<i class="fas fa-plus-circle plus-icon"></i>
-														<span class="num-items pr-2 pl-2"> 1 </span>
-														<i class="fas fa-minus-circle minus-icon"></i>
-													</div>
-													<br>
-													<a href="#"class="col-md-12 col-12 delet">
-                                                        
-                                                            <i class="fas fa-trash trash-icon"></i>
-                                                            <span class="icons-items pl-1"> حدف </span>
-                                                    </a>
-													
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<br>
-							</div>
-						</div>
-					</div>*/?>
 				</div>
         </div>
 			</div>
@@ -245,8 +153,38 @@ $sum=0;
 	</div>
 	</div>
 
+	<script type="text/javascript">
+      let quan=document.getElementsByClassName('iquantity');
+	  let price=document.getElementsByClassName('iprice');
+	  let total=document.getElementsByClassName('itotal');
+	  function subTotal(){
+		for(i=0;i<price.length;i++)
+		{
+               total[i].innerText=(price[i].value)*(quan[i].value);
+		}
+		return total[i];
+	  }
+    function check(index){
+    let number=document.getElementsByClassName('reult');
+	let quantity=document.getElementsByClassName('io');
+	for(let i=1;i<=number.length;i++){   if(number[i].value>0 && number[i].value<=quantity[i].value){
+    
+        return true;
+    }
+    else{
+        
+		if(number[i].value>quantity[i].value){
+			alert("  الكمية  المدخلة أكبر من المطلوبة");
+		}
+		else{
+            alert("الرجاء إدخال كمية أكبر من الصفر");
+		}
+        return false;
+    }
+}
+}
 
-
+</script>
 </body>
 <?php
     include 'style/include/footer.php';

@@ -33,7 +33,7 @@ if(isset($_POST['input'])){
           <th><?php echo $row['Email'];?></th>
           <th><?php echo $row['phone'];?></th>
           <th><?php echo  $row['Address'];?></th>
-          <th><img width="35px" height="35px" src="../image/user.jpg" alt=""></th>
+          <th><img width="35px" height="35px" src="../image/usersimage/<?php echo $row['Image'];?>" alt=""></th>
           <td class="as12"><div class="multi-button">
               <button>تعديل </button>
             </div>

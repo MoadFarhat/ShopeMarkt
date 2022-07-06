@@ -26,7 +26,6 @@ require_once('../php/phpConect/mysql_connact.php');
                 <tr>
                     <th>رقم المستخدم</th>
                     <th>اسم المستخدم</th>
-                    <th>كلمة السر</th>
                     <th>الرتبة</th>
                     <th>البريد الالكتروني</th>
                     <th>رقم الهاتف</th>
@@ -47,7 +46,6 @@ require_once('../php/phpConect/mysql_connact.php');
                 <tr>
                     <th><?php echo $x ?></th>
                     <th><?php echo $f[1] ?></th>
-                    <th><?php echo $f[2] ?></th>
                     <th><?php if($f['Rank']==1)
                     echo "مدير";
                    if($f['Rank']==2)
@@ -62,6 +60,8 @@ require_once('../php/phpConect/mysql_connact.php');
                     echo "موظف مستخدم";
                     if($f['Rank']==123)
                     echo "مدير موظف مستخدم";
+                    if($f['Rank']==4)
+                    echo "شركة توصيل";
                     ?></th>
                     <th><?php echo $f['Email'] ?></th>
                     <th><?php echo $f['phone'] ?></th>
@@ -77,7 +77,7 @@ require_once('../php/phpConect/mysql_connact.php');
                         if( $f['Rank']!=3 and ($f['Rank']==1 or $f['Rank']==2 or $f['Rank']==12  or $f['Rank']==23  or $f['Rank']==13)){?>
                       
                         <a href ="updateadmin.php?d=<?php echo base64_encode( $encryption_id); ?>"><button class="updat" id="update">تعديل </a></button>
-                        <?php }  if( $f['Rank']!=1 and ($f['Rank']==3 or $f['Rank']==2)) {?>
+                        <?php }  if( $f['Rank']!=1 and ($f['Rank']==3 or $f['Rank']==2 or $f['Rank']==4)) {?>
                             <a onclick="deleteUser(this);  return false;" href ="DeleteUser.php?d=<?php echo base64_encode( $encryption_id); ?>" >    <button class="delete" id="delete" >حدف</a></button>
                         <?php }?>
 

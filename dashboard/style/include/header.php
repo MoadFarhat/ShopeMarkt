@@ -72,6 +72,10 @@
             <a href="user.php"><i class="fas fa-user-friends"></i>
                 <span>مستخدمين</span></a>
         </div>
+        <div class="wrapper">
+            <a href="addcompany.php"><i class="fas fa-user-friends"></i>
+                <span>إضافة شركة التوصيل </span></a>
+        </div>
     </div>
 </div>
 <!-- End control -->

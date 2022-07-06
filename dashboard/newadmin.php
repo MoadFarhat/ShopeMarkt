@@ -28,14 +28,14 @@ $encryption_password=openssl_encrypt($password,$chiper,$encryption_key,$option,$
     $upload_file='../image/usersimage/'.$mfile;
     move_uploaded_file($mfiletemp,$upload_file);
       $rank=2;
-   $sql="INSERT INTO user (Name,Email,Password,Address,phone,Rank,Image) VALUES('$name','$email','$encryption_password','$addres','$phone','$rank','$mfile')";
-   $query=mysqli_query($conn_link,$sql)or die("error55");
-   header("location:user.php");
+      $sql="INSERT INTO user (Name,Email,Password,Address,phone,Rank,Image) VALUES('$name','$email','$encryption_password','$addres','$phone','$rank','$mfile')";
+      $query=mysqli_query($conn_link,$sql)or die("error55");
+        header("location:user.php");
     }
 }
 }
 
-?>
+?> 
 <!-- Start Admin -->
 <div class="admin">
     <h2 class="main-title">اضافة موظف</h2>
