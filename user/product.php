@@ -1,6 +1,7 @@
 <?php
 include 'style/include/header.php';
 require_once '../php/phpConect/mysql_connact.php';
+require_once '../php/phpConect/function.php';
 $encryption_id=base64_decode($_GET['r']);
 $chiper="AES-128-CTR";//خوارزمية التشفير
 $option=0;
@@ -10,11 +11,13 @@ $id=openssl_decrypt($encryption_id,$chiper,$encryption_key,$option,$encryption_v
 if(isset($_POST['addorder'])){
     $pid=$_POST['poudect'];
     $useId= $_POST['user'];
+    $count=$_POST['count'];
     if( empty($pid)or empty($useId)){
      echo'<script> alert("error found"); </script>';
     }
     else{
-          $query=$conn_link->query("INSERT INTO `order`(`proudect_id`, `UserID`, `date_order`) VALUES ($pid,$useId,Now())")or die("error");
+        $ip=getRealUserIp();
+          $query=$conn_link->query("INSERT INTO `order`(`proudect_id`, `UserID`, `date_order`,cont_item,user_ip) VALUES ($pid,$useId,Now(),$count,'$ip')")or die("error");
            header("Location:cart.php");
       
     }
@@ -73,7 +76,7 @@ if(isset($_POST['addorder'])){
                     <p><b>تاريخ الاضافة :</b> <?php  echo date('Y-m-d',strtotime($row['AddedDate']));  ?></p>
                     <form method="post" action="" onsubmit="return check();">
                     <label>الكمية:   </label>
-                    <input type="number" id="m1" value="1" pattern="[1-9]$">
+                    <input type="number" id="m1" name="count" value="1" pattern="[1-9]$">
                     <p><b>الوصف :  </b><?php echo $row['description'];?></p>
                    
                         <input type="text" name="poudect" value="<?php echo $row[0];?>" hidden>

@@ -23,11 +23,11 @@ $sum=0;
                                             echo"<p>لا يوجد لديك منتجات</p>";
 								}
 								else{
-									while($row=mysqli_fetch_array($query)){
+									/*while($row=mysqli_fetch_array($query)){
 										$sql=$conn_link->query("SELECT Sum(Price) FROM product WHERE ProductID='$row[1]'")or die("error");
 										$f=mysqli_fetch_array($sql);
 										$sum+=$f[0];
-									}
+									}*/
 								?>
 						<div class="card">
 							<div class="card-body no-padding">
@@ -41,8 +41,8 @@ $sum=0;
 												<p class="num-product mb-0"> منتجات </p>
 											</div>
 											<div class="col-md-6 col-6 text-center no-padding">
-												<p class="data-subtitle font-weight-bold mb-0"  ><?php
-												echo $sum;
+												<p class="data-subtitle font-weight-bold mb-0 sumvergen" id="summ" ><?php
+												//echo $sum;
 												?> دينار</p>
 											</div>
 										</div>
@@ -50,8 +50,8 @@ $sum=0;
 											<div class="col-md-6 col-6 text-center">
 												<p class="num-product mb-0"> توصيل </p>
 											</div>
-											<div class="col-md-6 col-6 text-center no-padding">
-												<p class="data-subtitle font-weight-bold mb-0">50 دينار</p>
+											<div class="col-md-6 col-6 text-center no-padding ">
+												<p class="data-subtitle font-weight-bold mb-0" id="delivary">50 </p>
 											</div>
 										</div>
 										<hr>
@@ -60,7 +60,7 @@ $sum=0;
 												<p class="num-product mb-0"> اجمالي </p>
 											</div>
 											<div class="col-md-6 col-6 text-center no-padding">
-												<p class="data-subtitle font-weight-bold mb-0">1000 دينار</p>
+												<p class="data-subtitle font-weight-bold mb-0" id="allsum"></p>
 											</div>
 										</div>
 										<div class="row">
@@ -114,15 +114,15 @@ $sum=0;
 														<!-- <p class="cart-items">2 Left</p> -->
 													</div>
 													<div class="col-md-3 col-3 mt-3">
-													<button class="add" style="border: none;"><i class="fas fa-plus-circle plus-icon"></i></button>
+													<button type="button" onclick=" Cliced();" class="add" style="border: none;"><i class="fas fa-plus-circle plus-icon"></i></button>
 													<form method="post" action="" onsubmit="return check();">
-														<input style="width:100px;border:none"  type="number" class="num-items pr-2 pl-2 iquantity reult" value="<?php echo $row['cont_item']; ?>"/>
-														<input type="text"  class="io"value="<?php echo $q['Quantity']; ?>" hidden>
+														<input style="width:50px;border:none" type="number" onchange="subTotal()" class="num-items pr-2 pl-2 iquantity reult <?php echo $q[0];?>" value="<?php echo $row['cont_item']; ?>"/>
+														<input type="text"  class="io <?php echo $q[0];?>" value="<?php echo $q['Quantity']; ?>" hidden>
 														
 															
 														
 													</form>
-														<button class="mines" style="border: none;"><i class="fas fa-minus-circle minus-icon"></i></button>
+														<button type="button"class="mines" style="border: none;"><i class="fas fa-minus-circle minus-icon"></i></button>
 													</div>
 													<br>
 													<a href="deletorder.php?d= <?php echo base64_encode($encryption_id);?>"class="col-md-12 col-12 delet">
@@ -152,38 +152,81 @@ $sum=0;
         
 	</div>
 	</div>
-
+        
 	<script type="text/javascript">
-      let quan=document.getElementsByClassName('iquantity');
-	  let price=document.getElementsByClassName('iprice');
-	  let total=document.getElementsByClassName('itotal');
-	  function subTotal(){
-		for(i=0;i<price.length;i++)
-		{
-               total[i].innerText=(price[i].value)*(quan[i].value);
-		}
-		return total[i];
-	  }
+        let quan=document.getElementsByClassName('iquantity');
+	    let price=document.getElementsByClassName('iprice');
+	    let total=document.getElementsByClassName('itotal');
+	    let sum=document.getElementById('summ');
+		let allsum=document.getElementById('allsum');
+		let delivary=document.getElementById('delivary');
+	    
+	    function subTotal(){
+		let s=0;
+		  for(i=0;i<price.length;i++)
+		  {
+			
+                total[i].innerText=(price[i].value)*(quan[i].value);
+			   
+			    s+=(price[i].value)*(quan[i].value);
+			    sum.innerText=s+" دينار"
+                
+			  
+		  }
+		  allsum.innerText=s+parseInt(delivary.textContent)+" دينار"
+	    }
+	    
     function check(index){
     let number=document.getElementsByClassName('reult');
 	let quantity=document.getElementsByClassName('io');
-	for(let i=1;i<=number.length;i++){   if(number[i].value>0 && number[i].value<=quantity[i].value){
-    
+	let add=document.getElementsByClassName('add');
+let mines=document.getElementsByClassName('mines');
+//	for(let i=0;i<=number.length;i++){  
+		 if(parseInt(number[index].value)>0 && parseInt(number[index].value)<=parseInt(quantity[index].value)){
+   // alert(""+number[i].value+" ," +quantity[i].value);
+   subTotal();
         return true;
     }
     else{
         
-		if(number[i].value>quantity[i].value){
-			alert("  الكمية  المدخلة أكبر من المطلوبة");
+		if(parseInt(number[index].value)<=0 ){
+		//
+   mines[index].setAttribute('disapled','disapled');
+	    alert("الرجاء إدخال كمية أكبر من الصفر"+(index+1));
+		//	alert(""+number[i].value+" ," +quantity[i].value);
+	
 		}
-		else{
-            alert("الرجاء إدخال كمية أكبر من الصفر");
+		if(parseInt(number[index].value) >= parseInt(quantity[index].value+1) ){
+			alert("  الكمية  المدخلة أكبر من المطلوبة للمنتج رقم"+(index+1));
+		  
 		}
+		subTotal();
         return false;
     }
 }
-}
+//}
+subTotal();
+function Cliced(){
+	let number=document.getElementsByClassName('reult');
+let add=document.getElementsByClassName('add');
+let mines=document.getElementsByClassName('mines');
+for(let i=0;i<=add.length;i++){
+	let sum=parseInt(number[i].value);
+add[i].addEventListener("click",function(){
+	sum+=1
+	number[i].value=sum
+	check(i)
+	
+})
+sum=parseInt(number[i].value);
+mines[i].addEventListener("click",function(){
+	sum-=1
+	number[i].value=sum
+	 check(i)
+})
 
+}
+}
 </script>
 </body>
 <?php
