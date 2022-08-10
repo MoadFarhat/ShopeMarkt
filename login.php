@@ -41,13 +41,19 @@ header("location:user/index.php");
 
     else if( $_SESSION['rank']==1 or $_SESSION['rank']==12 or $_SESSION['rank']==13 or $_SESSION['rank']==123)
     header("location:dashboard/index.php");
-    }
+    
+elseif( $_SESSION['rank']==4){
+    header("location:Company/index.php");
+}
+}
 else{
     $_SESSION['login_attemts']+=1;
   // 
     $_SESSION['error']="خطأ في إدخال بريد الكتروني او كلمة المرور";
+
 }
 }
+
 ?>
 
 <html> 

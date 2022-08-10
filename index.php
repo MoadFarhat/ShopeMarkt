@@ -5,14 +5,31 @@ $chiper="AES-128-CTR";       //خوارزمية التشفير
 $option=0;
 $encryption_vi='1234567890123456';
 $encryption_key='Moad';
-
+error_reporting(0);
 ?>
 
 <!-- Start Product -->
 <div class="product" id="product">
 <?php
+$query = $conn_link->query("SELECT count(DISTINCT( CategoryID)) FROM `product`")or die("error");
+$com=$query->fetch_array();
+$count=$com[0];
 
-$sql4=$conn_link->query("SELECT DISTINCT( CategoryID) FROM product  ")or die("errror");
+     
+$page=1;
+$limit=$count/10;
+$limit=ceil($limit);
+if(isset($_GET['p']))
+{
+$page=$_GET['p'];
+if($page>$limit or $page<1){
+$page=1;}
+
+}
+
+$page=$page-1;
+$p=$page * 10;
+$sql4=$conn_link->query("SELECT DISTINCT( CategoryID) FROM product  limit ".$p.",". 10 ."")or die("errror");
 
 while($f=mysqli_fetch_array($sql4)){
 
@@ -53,13 +70,35 @@ while($name=mysqli_fetch_array($q)){
             </div>
             <?php  
             }
-        ?>
+            ?>
         </div>
             <?php
             
+}     
 }
+$check=$p+10;
+            echo'<div class="prev"><a class="lm" href="index.php?p=1">الأول </a>';
+            if($_GET['p'] > 1){
+            $backpage=$_GET['p']-1;
+            echo'<a class="lm" href="index.php?p='.$backpage.'">السابق </a>';
+            }
 
-}
+            
+            for($i=1;$i<=$limit;$i++){
+                if( $i==$_GET['p']){
+                    echo '<a class="lm" id="active" disabled="disabled">'.$i.'</a>';
+                }else{
+                    ?>
+                    
+            <a class="lm" href="index.php?p=<?php echo $i;?>"><?php echo $i;?> </a><?php }
+            }
+            if($count > $check){
+            $nextpage=$_GET['p'] + 1;
+                    
+            echo'<a class="lm" href="index.php?p='.$nextpage.' ">التالي </a>';
+            }
+        
+            echo'<a  class="lm" href="index.php?p='.$limit.'">الأخير </a></div>';
 ?>
 </div>
 <!-- End Product -->

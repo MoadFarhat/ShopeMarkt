@@ -755,4 +755,24 @@ font-size: 40px;
         height: 100%;
     }
 }
+.prev {
+	margin-top: 30px;
+	
+}
+.prev .lm{
+	color:black;
+float:right;
+padding: 8px 16px;
+text-decoration: none;
+transition:background-color .3s;
+border:1px solid  #E7E7E7;
+border-radius: 12px;
+}
+.prev a#active{
+background-color:rgb(0,128,255);
+color: #fff;
+}
+.prev .lm:hover:not(#active){
+	background-color: #ddd;
+}
   /* End Animation */
