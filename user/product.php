@@ -76,9 +76,9 @@ if(isset($_POST['addorder'])){
                     <p><b>تاريخ الاضافة :</b> <?php  echo date('Y-m-d',strtotime($row['AddedDate']));  ?></p>
                     <form method="post" action="" onsubmit="return check();">
                     <label>الكمية:   </label>
-                    <input type="number" id="m1" name="count" value="1" pattern="[1-9]$">
+                    <input type="number" id="m1" name="count" value="1" min=1 max=<?php echo $row['Quantity'];?>  pattern="[1-9]$">
                     <p><b>الوصف :  </b><?php echo $row['description'];?></p>
-                   
+                    <input type="text" id="qount" value="<?php echo $row['Quantity'];?>" hidden>
                         <input type="text" name="poudect" value="<?php echo $row[0];?>" hidden>
                         <input type="text" name="user" value="<?php echo $_SESSION['user_id'];?>" hidden>
                     <button type="submit" name="addorder" class="btn btn-default cart">اضاف الى سلة</button>
@@ -198,13 +198,19 @@ if(isset($_POST['addorder'])){
     <!-- End Product -->
 <script type="text/javascript">
     function check(){
-    let number=document.getElementById('m1').value;
-    if(number>0){
+    let number=parseInt(document.getElementById('m1').value);
+    let qunt=parseInt(document.getElementById('qount').value);
+    if(number>0 && number<=qunt ){
      
         return true;
     }
     else{
+        if(number<=0 ){
+     
         alert("الرجاء إدخال الكمية بشكل صحيح");
+        }
+        else
+        alert("  الكمية  المدخلة أكبر من العدد المطلوب");
         return false;
     }
 }

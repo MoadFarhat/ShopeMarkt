@@ -50,7 +50,7 @@ echo "in add";
               </div>
               <div class="page">
                 <label class="field field_v1">
-                  <input class="field__input" name="price"placeholder="ادخل السعر" required>
+                  <input class="field__input" type="number" name="price"placeholder="ادخل السعر" required>
                   <span class="field__label-wrap">
                     <span class="field__label">السعر</span>
                   </span>
@@ -58,7 +58,7 @@ echo "in add";
               </div>
               <div class="page">
                 <label class="field field_v1">
-                  <input class="field__input" name="quantity" placeholder="ادخل الكمية" required>
+                  <input class="field__input" type="number" name="quantity" placeholder="ادخل الكمية" required>
                   <span class="field__label-wrap">
                     <span class="field__label">الكمية</span>
                   </span>
@@ -66,7 +66,7 @@ echo "in add";
               </div>
             <div class="page">
                 <label class="field field_v1">
-                  <input class="field__input" name="discount" placeholder="ادخل التخفيض" required>
+                  <input class="field__input" type="number" name="discount" placeholder="ادخل التخفيض" required>
                   <span class="field__label-wrap">
                     <span class="field__label">التخفيض</span>
                   </span>
