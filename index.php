@@ -41,7 +41,7 @@ while($name=mysqli_fetch_array($q)){
     
         <a href="search-category.php?g=<?php  echo $name[0]?>" class="title"><h2 class="main-title"><?php echo $name[0]?></h2></a>
         <div class="container">
-            <?php $query=$conn_link->query("SELECT * FROM product WHERE CategoryID='$f[0]' ")or die("erroe");
+            <?php $query=$conn_link->query("SELECT * FROM product WHERE CategoryID='$f[0]' limit 5")or die("erroe");
             while($c=mysqli_fetch_array($query) ){
                 $data=$c['Image'] ;
                 $res=explode(" ",$data);

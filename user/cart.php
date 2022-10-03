@@ -111,11 +111,11 @@ $sum=0;
 														<p class="cart-product mb-0 text-right"><?php echo $q['Product']; ?></p>
 														<p class="cart-product mb-0 text-center"><?php echo $q['Price'] ;?></p>
 														<p class="cart-price mb-0  text-left itotal" ><?php if($q['discount']==0)
-														$q['discount']=1;
+														$w=$q['Price'];
 														else
-														$w=$q['Price']*$q['discount'];
+														$w=$q['Price']-(($q['Price']*$q['discount'])/100);
 														echo $w; ?> دينار</p>
-														<input type="text" class="iprice" value="<?php echo $q['Price']; ?>" hidden />
+														<input type="text" class="iprice" value="<?php echo $w ?>" hidden />
 														<!-- <p class="cart-items">2 Left</p> -->
 													</div>
 													<div class="col-md-3 col-3 mt-3">
@@ -143,6 +143,8 @@ $sum=0;
 													</a></button>
 													<form class="ersubmit" method="post" action="cart.php">
 													<input type="text" name="iditem" class="iditem" value="<?php echo $row[0]; ?>" hidden>
+													<input type="text" name="discount" class="iditem" value="<?php echo $q["discount"]; ?>" hidden>
+													<input type="text" name="price" class="iditem" value="<?php echo $q['price']; ?>" hidden>
 													</form>
 												</div>
 											</div>
@@ -188,18 +190,20 @@ $sum=0;
 			                <div class="input-group-prepend">
 			                    <button class="btn btn-outline-secondary" type="button" id="qty-minus"><span class="fa fa-minus"></button>
 			             </div>
-			       <input type="number" style="width:40px"  value="<?php echo $quey1['cont_item'];?>" min = 1 max=<?php echo $q1['Quantity'];?> class="form-control text-center" name="qty" readonly>
+						 <form method="post" action="pay.php" >
+			       <input type="number" style="width:80px"  value="<?php echo $quey1['cont_item'];?>" min = 1 max=<?php echo $q1['Quantity'];?> class="form-control text-center" name="qty" readonly>
 			      <div class="input-group-prepend">
 			        <button class="btn btn-outline-secondary" type="button" id="qty-plus"><span class="fa fa-plus"></span></button>
 			     </div>
 		    	</div>
              </div>
                <div class="text-center">
-				<form method="post" action="pay.php" style="margin:10px">
+				
+				<input type="text" name="orderid" value="<?php echo $id;?>" hidden>
 					<input type="text" name="proudectid" value="<?php echo $q1['proudect_id'];?>" hidden>
 					<input type="text" name="userid" value="<?php echo $q1['UserID'];?>" hidden>
-					<input type="radio" class="radiodeiv"  value="توصيل" style="margin:10px">توصيل
-					<input type="radio" value="لا"style="margin:10px">لا
+					<input type="radio"  name="m1"class="radiodeiv"  value="توصيل" style="margin:10px">توصيل
+					<input type="radio" name="m2" value="لا"style="margin:10px">لا
 					
 						<div  class="delev"> 
 						<p>إختر شركة التوصيل</p>
@@ -216,7 +220,8 @@ $sum=0;
 							<?php }?>
 	</select>
 						</div>
-				
+						<p>  </p>
+						
              	<button type="submit" class="btn btn-outline-primary btn-sm btn-block" id="add_to_cart_modal"><i class="fa fa-cart-plus"></i> شراء</button>
 				
 				</form>
@@ -228,7 +233,7 @@ $sum=0;
 	</div>
 	</div>
 	<?php } ?>
-		
+							</div>
 <style>
 	
 	.card2{
