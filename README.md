@@ -2,7 +2,7 @@
 # مشروع متجر إلكتروني 
 # تحت إشراف الأستاذ معمر إعوينات
 @Mohammed1Faraj 
-@Ahmedalbelazi // مساعد مصمم وا جهات
+@Ahmedalbelazi
 @Abdalrazaq1234
-@Alibenaisha  // مصم واجهات 
+@Alibenaisha  
 @MoadFarhat
