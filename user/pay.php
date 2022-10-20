@@ -39,7 +39,7 @@ $queryorder=$conn_link->query("SELECT * FROM `order` WHERE `OrderID`='$orderid'"
      $res=explode(" ",$data);
      $count=count($res)-1;
      require_once('mail.php');
-$mail->setFrom('moadfarhat89@gmail.com', ' متجر Shope ');
+$mail->setFrom('xxxx@gmail.com', ' متجر Shope ');
 $mail->addAddress($infopay['Email']); 
   $mail->Subject = ' تم شراء منتج';
     $mail->Body    = '<html dir="rtl"><div style="direction:rtl"><p dir="rtl"><b> معلومات عن المنتج الذي تم شراءه</b></p>
@@ -52,7 +52,7 @@ $mail->addAddress($infopay['Email']);
     </html> ";
     $mail->send();
     echo 'Message has been sent';
-    $mail->setFrom('moadfarhat89@gmail.com', ' متجر Shope ');
+    $mail->setFrom('xxxx@gmail.com', ' متجر Shope ');
 $mail->addAddress($rowinfEmailSalary["Email"]); 
   $mail->Subject = ' تم بيع منتج';
     $mail->Body    = '<html dir="rtl"><div style="direction:rtl"><p><b> معلومات عن المنتج الذي تم بيعه/b></p>
@@ -67,7 +67,7 @@ $mail->addAddress($rowinfEmailSalary["Email"]);
 if( isset($_POST['m1']))
 {
     $mail->send();
-    $mail->setFrom('moadfarhat89@gmail.com', ' متجر Shope ');
+    $mail->setFrom('xxxx@gmail.com', ' متجر Shope ');
     $mail->addAddress($rowinfEmailSalary["Email"]); 
       $mail->Subject = ' منتج يطلب توصيله';
         $mail->Body    = '<html dir="rtl"><div style="direction:rtl"><p><b> معلومات عن المنتج المراد  توصيله</b></p>
